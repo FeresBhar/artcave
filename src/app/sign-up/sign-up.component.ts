@@ -3,8 +3,6 @@ import { HttpClient ,HttpClientModule  } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
 import { FormsModule,FormGroup, ReactiveFormsModule, FormControl , Validators} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-
-
 import Swal from 'sweetalert2';
 
 @Component({

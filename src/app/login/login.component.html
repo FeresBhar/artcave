@@ -1,17 +1,23 @@
 <div class="container">
     <div class="row container-login">
         <div class="col-md-4">
-            <form  class="pt-4">
+            <form  class="form pt-4" [formGroup]="login" (ngSubmit)="OnLoginSubmit()">
                 <h4 class="mb-4 text-center">Login</h4>
-                
+
                 <div class="mb-4">
                     <label for="USERNAME" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="USERNAME" id="USERNAME" placeholder="Username" required>
+                    <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username" required>
+                    <div *ngIf="login.get('username')?.errors && login.get('username')?.errors?.['incorrect']">
+                        <small>*Incorrect username</small>   
+                    </div>
                 </div>
 
                 <div class="mb-4">
                     <label for="PASSWORD" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="PASSWORD" id="PASSWORD" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" required>
+                    <div *ngIf="login.get('password')?.errors && login.get('password')?.errors?.['incorrect']">
+                        <small>*Incorrect password</small>   
+                    </div>
                 </div>
                 
                 <button type="submit" class="btn custom-color w-100 mt-2  mb-4 ">Login</button>

@@ -31,3 +31,7 @@ input::placeholder{
 .btn:hover{
     background-color: #04162f;
 }
+small{
+    color: rgb(172, 55, 55);
+    font-weight: bold;
+}
