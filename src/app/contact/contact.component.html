@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row container-contact">
+        <div class="col-md-5">
+            <form class="pt-4" (ngSubmit)="OnContactSubmit()">
+                <h4 class="mb-5 text-center">Contact Us</h4>
+
+                   
+                <div class="mb-4">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control inp" name="name" id="name" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control inp" name="email" id="email" placeholder="example@gmail.com" required>
+                </div>
+              
+
+                <div class="mb-4">
+                    <label for="feedback" class="form-label ">Message</label>
+                    <textarea name="feedback" class="form-control txt-area" cols="30" rows="9"></textarea>
+                </div>
+                        
+                <div class="d-flex justify-content-center ">
+                    <button type="submit" class="btn custom-color mt-2 mb-4 ">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

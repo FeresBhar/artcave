@@ -1,0 +1,33 @@
+.container-login
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+input{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+    height: 50px;
+}
+input:focus{
+    background-color: #141922;
+    
+}
+input::placeholder{
+    color: rgb(117, 117, 117);
+}
+
+.custom-color {
+    color: white; 
+    background-color: #06234a;
+}
+.link{
+    color: blue;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: #04162f;
+}

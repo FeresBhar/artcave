@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row container-signup">
+        <div class="col-md-4">
+            <form class=" form pt-4 " [formGroup]="Signup" (ngSubmit)="OnSignupSubmit()">
+                <h4 class="mb-4 text-center">Sign-up</h4>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="Username" placeholder ="Username" formControlName="Username" required >
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label ">Email</label>
+                    <input type="email" name="Email" class="form-control " placeholder ="example@gmail.com" formControlName="Email" required email >
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="Password" formControlName="Password" placeholder ="Password" required >
+                    
+                </div>
+            
+                <p class="mb-2 text-center ">i want to register as : </p>
+
+                <div class=" mb-4 radio-buttons text-center ">
+                    <input type="radio" id="option1" name="type" value="C" formControlName="type" required>
+                    <label for="option1">Client</label>
+                    
+                    <input type="radio" id="option2" name="type" value="A" formControlName="type" required>
+                    <label for="option2">Artist</label>
+                </div>
+                
+                <button type="submit" class="btn custom-color  w-100 mb-4 " >Sign-up</button>
+                <p class="text-center">Already have an account  ? <a class="link" routerLink='/login'>Login</a></p>
+                
+            </form>
+        </div>
+    </div>
+</div>

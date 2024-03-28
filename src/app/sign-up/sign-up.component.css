@@ -1,0 +1,71 @@
+.container-signup
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.radio-buttons input[type="radio"] {
+    display: none;
+}
+input{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+    height: 50px;
+}
+input:focus{
+    background-color: #141922;
+}
+input::placeholder{
+    color: rgb(117, 117, 117);
+}
+
+.radio-buttons label {
+    display: inline-block;
+    font-style: bold;
+    background-color: #101014;
+    padding: 10px 20px;
+    cursor: pointer;    
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+    background-color: #093570;
+}
+#option1 + label{
+    border-radius: 5px 0 0 5px ;
+    border: 2px solid #093570;
+}
+#option2 + label{
+    border-radius: 0 5px 5px 0 ;
+    border-top: 2px solid #093570; 
+    border-bottom: 2px solid #093570; 
+    border-right: 2px solid #093570;
+}
+
+.custom-color {
+    color: white; 
+    background-color: #06234a;
+}
+
+.btn:disabled{
+    border: none;
+}
+.btn:hover{
+    background-color: #04162f;
+}
+.link{
+    color: blue;
+    text-decoration: none;
+}
+
+input.ng-invalid.ng-touched{
+    border: rgb(98, 0, 0) 2px solid;
+}
+small{
+    color: rgb(173, 0, 0);
+    font-weight: bold;
+}
+
+

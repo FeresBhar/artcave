@@ -1,0 +1,61 @@
+.container{
+    color: #fff;
+}
+
+
+.inp{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+    height: 50px;
+    padding-left: 10px;
+}
+.inp:focus{
+    background-color: #141922;
+}
+.inp::placeholder{
+    color: rgb(117, 117, 117);
+}
+
+.label{
+    background-color: #303034;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.txt-area{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+}
+.txt-area::placeholder{
+    color: rgb(117, 117, 117);
+}
+
+
+.upload{
+    background-color: #101014;
+    border: none;
+    margin-top: 80px;
+}
+
+
+.upload-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.card-img-top{
+    width: 100px;
+    height: 100px;
+}
+
+.file{
+    background-color: #141922;
+    border: none;
+    color: rgb(117, 117, 117);
+}

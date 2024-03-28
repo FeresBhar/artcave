@@ -1,0 +1,38 @@
+.container-contact
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.inp{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+    height: 40px;
+}
+.inp:focus{
+    background-color: #141922;
+}
+.inp::placeholder{
+    color: rgb(117, 117, 117);
+}
+
+.btn {
+    color: white; 
+    background-color: #06234a;
+    width: 50%;
+}
+.btn:hover{
+    background-color: #04162f;
+}
+
+.txt-area{
+    background-color: #141922;
+    color: white !important;
+    border: none;
+}
+.txt-area::placeholder{
+    color: rgb(117, 117, 117);
+}

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#"><img src="https://dummyjson.com/image/150" alt="LOGO" class="rounded small "></a>
+        
+      <div class="collapse navbar-collapse mx-2 " id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/explore" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Explore </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/commissions" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Commisions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact" routerLinkActive="active" 
+                    [routerLinkActiveOptions]="{exact:true}">Contact us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/profile" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">profile </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto buttons">
+                <li class="nav-item">
+                        <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+                <li>
+                    <a routerLink="/sign-up" class="btn custom-btn btn-sm signup">Sign-up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+
+  

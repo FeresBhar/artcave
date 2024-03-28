@@ -1,0 +1,10 @@
+.color{
+    color: white;
+}
+.custom-color {
+    color: white; 
+    background-color: #06234a;
+}
+.btn:hover{
+    background-color: #04162f;
+}
