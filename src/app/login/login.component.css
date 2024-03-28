@@ -25,7 +25,7 @@ input::placeholder{
     background-color: #06234a;
 }
 .link{
-    color: blue;
+    color:rgb(220, 92, 92);
     text-decoration: none;
 }
 .btn:hover{

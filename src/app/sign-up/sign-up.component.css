@@ -49,22 +49,19 @@ input::placeholder{
     background-color: #06234a;
 }
 
-.btn:disabled{
-    border: none;
-}
 .btn:hover{
     background-color: #04162f;
 }
 .link{
-    color: blue;
+    color: rgb(220, 92, 92);
     text-decoration: none;
 }
 
 input.ng-invalid.ng-touched{
-    border: rgb(98, 0, 0) 2px solid;
+    border: rgb(171, 36, 36) 2px solid;
 }
 small{
-    color: rgb(173, 0, 0);
+    color: rgb(172, 55, 55);
     font-weight: bold;
 }
 

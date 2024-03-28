@@ -6,18 +6,33 @@
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="Username" placeholder ="Username" formControlName="Username" required >
+                    <div *ngIf="Signup.get('Username')?.invalid && Signup.get('Username')?.touched">
+                        <small *ngIf="Signup.get('Username')?.errors?.['pattern']">
+                            *Please enter only letters and numbers
+                        </small>
+                    </div>
                 </div>
                 
                 <div class="mb-3">
                     <label for="email" class="form-label ">Email</label>
                     <input type="email" name="Email" class="form-control " placeholder ="example@gmail.com" formControlName="Email" required email >
-                    
+                    <small *ngIf="Signup.get('Email')?.invalid && Signup.get('Email')?.touched && Signup.get('Email')?.errors?.['email']">
+                        *Invalid email format
+                    </small> 
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="Password" formControlName="Password" placeholder ="Password" required >
-                    
+                    <div *ngIf="Signup.get('Password')?.invalid && Signup.get('Password')?.touched ">
+                        <small *ngIf="Signup.get('Password')?.errors?.['minlength']?.['requiredLength']">
+                            *Please enter at least 6 caracters
+                        </small>
+                        <small *ngIf="Signup.get('Password')?.errors?.['pattern']" >
+                            *Please enter only letters and numbers
+                        </small>
+                        
+                    </div>
                 </div>
             
                 <p class="mb-2 text-center ">i want to register as : </p>
@@ -28,9 +43,15 @@
                     
                     <input type="radio" id="option2" name="type" value="A" formControlName="type" required>
                     <label for="option2">Artist</label>
+                    <div *ngIf="Signup.get('type')?.invalid" class="mt-1">
+                        <small style="color: rgb(220, 92, 92);">
+                            *Select type
+                        </small>
+                        
+                    </div>
                 </div>
                 
-                <button type="submit" class="btn custom-color  w-100 mb-4 " >Sign-up</button>
+                <button type="submit" class="btn custom-color  w-100 mb-4">Sign-up</button>
                 <p class="text-center">Already have an account  ? <a class="link" routerLink='/login'>Login</a></p>
                 
             </form>
