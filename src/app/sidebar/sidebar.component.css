@@ -1,0 +1,67 @@
+.rounded-circle{
+    height: 100px;
+    width: 100px;
+}
+
+.row{
+    color: white;
+}
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name p {
+    margin: 10px 0 0;
+}
+li {
+    list-style: none;
+    margin:30px;
+}
+button:hover{
+    background-color:#18181c;
+}
+button {
+    position: relative;
+    width: 100%; 
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.left{
+    padding-right: 10px;
+    transition: color .15s linear;
+}
+
+@media (max-width: 992px) {
+    .head{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .name{
+        padding-left: 20px;  
+    }
+  }
+
+.opacity{
+    opacity: .1;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.sep {
+    height: 1.8em;
+}
