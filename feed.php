@@ -26,7 +26,7 @@ header('Content-type: application/json');
     
 
     if ($artists) {
-        // Convert comma-separated images string to arrays
+
         foreach ($artists as &$artist) {
             $artist['images'] = explode(',', $artist['images']);
             $artist['categories'] = explode(',', $artist['categories']);
