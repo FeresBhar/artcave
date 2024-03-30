@@ -32,13 +32,15 @@ $json_data = json_decode(file_get_contents('php://input'), true);
     $description = $json_data['Description'] ?? NULL;
     $pfpURL = $json_data['pfpURL'] ?? NULL;
     $categories = $json_data["categories"] ?? NULL;
+    $public = $json_data["public"] ?? "N";
 // updating everything but categs
 try {
-    $stmt = $connexion->prepare("UPDATE Artist SET Description = :description, Headline = :headline, pfpURL = :pfpURL WHERE ArtistId = :artistID");
+    $stmt = $connexion->prepare("UPDATE Artist SET Description = :description, Headline = :headline, pfpURL = :pfpURL, public=:public WHERE ArtistId = :artistID");
     $stmt->bindParam(':artistID', $artistID);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':headline', $headline);
     $stmt->bindParam(':pfpURL', $pfpURL);
+    $stmt->bindParam(':public', $public);
     $resultat = $stmt->execute();
     echo json_encode(array('success' => true, 'message' => 'Profile updated successfully.'));
 } catch (PDOException $e) {
