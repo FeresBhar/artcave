@@ -54,14 +54,9 @@ button {
   }
 
 .opacity{
-    opacity: .1;
+    opacity: .3;
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-}
-
-
-.sep {
-    height: 1.8em;
 }

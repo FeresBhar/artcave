@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     
     this.profile = new profile("KOTB GHARBI","Lorem ipsum dolor sit amet, consectetur adipiscssa, scelerisque vitae, consequat in",
-    ["3d","2d","bla bla"],"freelance artist",["https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150"],"https://dummyjson.com/image/150");
+    ["3d","2d","bla bla"],"freelance artist",["https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150"],"https://dummyjson.com/image/150");
 
     if (this.profile.images) {
       this.x = this.profile.images.length;
