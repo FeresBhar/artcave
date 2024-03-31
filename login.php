@@ -25,7 +25,6 @@ if ($username !== null && $password !== null) {
     if ($user) {
         $stored_pw = $user['Password'];
         if ($password === $stored_pw) {
-            echo json_encode(array("result" => "true"));
             auth($username, $password);
 
         } else {
