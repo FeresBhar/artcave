@@ -1,13 +1,10 @@
 <?php
-use Firebase\JWT\JWT;
 
 header("Access-Control-Allow-Origin: http://localhost:4200");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 require_once("connexion.php");
-require_once("vendor/autoload.php"); 
-header('Content-type:application/json');
-
+header('Content-type: application/json');
 
 $json_data = json_decode(file_get_contents('php://input'), true); 
     $username = $json_data['Username'];
@@ -28,7 +25,6 @@ $json_data = json_decode(file_get_contents('php://input'), true);
             exit;
         } else {
             insertUser($username, $email, $password, $type);
-            auth($username, $email, $password, $type);
             $msg = ["result" => "User added successfully"];
             echo json_encode($msg);
                     
@@ -36,35 +32,6 @@ $json_data = json_decode(file_get_contents('php://input'), true);
     }
 
 
-    
-        
-function auth($username, $email, $password, $type)
-{                  
-       // jwt token generation
-    global $connexion;              
-    $secret_key = "bc34968d319ad9363f9642f6c567f9b119c979e2431e544421101aa6c9fe95a1"; 
-    $issuer_claim = "localhost"; 
-    $audience_claim = "localhost"; 
-    $issuedat_claim = time(); 
-    $notbefore_claim = $issuedat_claim + 10; 
-    $expire_claim = $issuedat_claim + 3600; 
-
-    $token = array(
-        "iss" => $issuer_claim,
-        "aud" => $audience_claim,
-        "iat" => $issuedat_claim,
-        "nbf" => $notbefore_claim,
-        "exp" => $expire_claim,
-        "data" => array(
-            "username" => $username,
-            "email" => $email,
-            "password" => $password,
-            "type" => $type
-                        )
-                    );
-                    $jwt = JWT::encode($token, $secret_key); 
-                    echo json_encode(array("success" => true, "jwt" => $jwt));
-                } 
 function insertUser($username, $email, $password, $type)
 {
     global $connexion;
