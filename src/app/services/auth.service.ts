@@ -14,13 +14,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(user: { username: string, password: string }): Observable<any> {
+  login(user: { Username: string, Password: string }): Observable<any> {
     return this.http.post<any>("http://localhost/api/login.php",user).pipe(
       tap(response => {
         if (response.result && response.jwt) {
           localStorage.setItem('token', response.jwt);
           this.loggedIn.next(true);
-          this.username = user.username;
+          this.username = user.Username;
         }
       })
     );

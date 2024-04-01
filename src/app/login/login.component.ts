@@ -3,7 +3,6 @@ import { HttpClient ,HttpClientModule  } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
 import { FormsModule,FormGroup, ReactiveFormsModule, FormControl , Validators} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -21,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
       this.login= new FormGroup({
-        username : new FormControl(null,Validators.required),
-        password : new FormControl(null,Validators.required),
+        Username : new FormControl(null,Validators.required),
+        Password : new FormControl(null,Validators.required),
       })
   }
 
@@ -30,15 +29,14 @@ export class LoginComponent implements OnInit {
   OnLoginSubmit() {
     if(this.login.valid){
       this.authService.login(this.login.value).subscribe((res : any) =>{
-        console.log(res);
-        if(res.result){
+        if(res.result === true){
           this.router.navigate(['/explore']);
         }
         else if(res.result =="Username is incorrect"){
-          this.login.get("username")?.setErrors({ incorrect: true });
+          this.login.get("Username")?.setErrors({ incorrect: true });
         }
         else if(res.result =="Password incorrect"){
-          this.login.get("password")?.setErrors({ incorrect: true });
+          this.login.get("Password")?.setErrors({ incorrect: true });
         }
       },
       (error) =>{

@@ -30,13 +30,13 @@
                 <div class="col">
                     <div class="d-flex justify-content-between align-items-center px-2 ">
                         <p class="portfolio text-white "><strong>Portfolio  </strong><span class="opacity">{{x}} artworks</span></p>
-                        <div *ngIf="profile?.images" >
+                        <div *ngIf="profile?.images">
                             <div *ngIf="profile.images && profile.images.length > 0;">
                                 <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-plus"></i> add art</a>
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="profile?.images">
+                    
                         <div *ngIf="!profile.images || profile.images.length === 0; else elseBlock" class="card upload ">
                             <div class="card-body upload-body">
                                 <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
@@ -46,7 +46,7 @@
                                 <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-arrow-up"></i> Upload image</a>
                             </div>
                         </div>
-                    </div>
+                    
                     
                     <ng-template #elseBlock>
                         <div class="row mt-3">

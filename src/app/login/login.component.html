@@ -6,16 +6,16 @@
 
                 <div class="mb-4">
                     <label for="USERNAME" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username" required>
-                    <div *ngIf="login.get('username')?.errors && login.get('username')?.errors?.['incorrect']">
+                    <input type="text" class="form-control" name="Username" placeholder="Username" formControlName="Username" required>
+                    <div *ngIf="login.get('Username')?.errors && login.get('Username')?.errors?.['incorrect']">
                         <small>*Incorrect username</small>   
                     </div>
                 </div>
 
                 <div class="mb-4">
                     <label for="PASSWORD" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" required>
-                    <div *ngIf="login.get('password')?.errors && login.get('password')?.errors?.['incorrect']">
+                    <input type="password" class="form-control" name="Password" placeholder="Password" formControlName="Password" required>
+                    <div *ngIf="login.get('Password')?.errors && login.get('Password')?.errors?.['incorrect']">
                         <small>*Incorrect password</small>   
                     </div>
                 </div>
