@@ -11,10 +11,9 @@ header('Content-type:application/json');
 //json data
 $json_data = json_decode(file_get_contents('php://input'), true); 
 
-$username = $json_data['username'];
-$password = $json_data['password'];
-
-if ($username !== null && $password !== null) {
+if (!empty($json_data['Username']) && !empty($json_data['Password'])) {
+    $username = $json_data['Username'];
+    $password = $json_data['Password'];
     // retrieve user data
     $stmt = $connexion->prepare("SELECT * FROM user WHERE Username = :username");
     $stmt->bindParam(':username', $username);

@@ -12,8 +12,8 @@ header('Content-type: application/json');
                 a.Headline,
                 a.pfpURL,
                 a.Rating,
-                GROUP_CONCAT(DISTINCT i.imageURL) AS images,
-                GROUP_CONCAT(DISTINCT c.Name) AS categories
+                GROUP_CONCAT(i.imageURL) AS images,
+                GROUP_CONCAT(c.Name) AS categories
             FROM artist a 
             LEFT JOIN image i ON a.ArtistId = i.artistid
             LEFT JOIN artistcategory ac ON a.artistid = ac.artistid
