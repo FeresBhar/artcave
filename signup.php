@@ -43,7 +43,7 @@ function insertUser($username, $email, $password, $type)
     $resultat = $stmt->execute();
     if ($resultat) {
         if ($type == 'A') {
-            $stmt_artist = $connexion->prepare("INSERT INTO artist (username, Description,  Headline, pfpURL, Rating, public) VALUES (:username, NULL, NULL, NULL, NULL, NULL)");
+            $stmt_artist = $connexion->prepare("INSERT INTO artist (username, Description,  Headline, pfpURL, Rating, public) VALUES (:username, NULL, NULL, NULL, NULL, 'Y')");
             $stmt_artist->bindParam(':username', $username);
             $stmt_artist->execute();
         } elseif ($type == 'C') {
