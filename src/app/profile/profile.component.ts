@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { profile } from '../models/profile';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -14,16 +17,21 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
+  ProfileUsername? : string | null;
   profile!: profile;
   x : number = 0;
 
-  ngOnInit(): void {
-    
-    this.profile = new profile("KOTB GHARBI","Lorem ipsum dolor sit amet, consectetur adipiscssa, scelerisque vitae, consequat in",
-    ["3d","2d","bla bla"],"freelance artist",["https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150","https://dummyjson.com/image/150"],"https://dummyjson.com/image/150");
+  constructor(private http:HttpClient,private userservice:UserService , private route : ActivatedRoute){}
 
-    if (this.profile.images) {
-      this.x = this.profile.images.length;
+  ngOnInit(): void {
+    this.ProfileUsername = this.route.snapshot.paramMap.get('username');
+    if (this.ProfileUsername) {
+      this.userservice.getProfile(this.ProfileUsername).subscribe((profile: profile) => {
+        this.profile = profile;
+        if (this.profile.images) {
+          this.x = this.profile.images.length;
+        }
+      });
     }
   }
 }

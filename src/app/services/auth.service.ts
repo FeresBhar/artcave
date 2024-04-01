@@ -7,6 +7,8 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+
+  username?: String;
   
   private loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -18,6 +20,7 @@ export class AuthService {
         if (response.result && response.jwt) {
           localStorage.setItem('token', response.jwt);
           this.loggedIn.next(true);
+          this.username = user.username;
         }
       })
     );

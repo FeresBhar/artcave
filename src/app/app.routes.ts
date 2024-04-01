@@ -20,7 +20,6 @@ export const routes: Routes = [
     {path:'contact' , component:ContactComponent, title:"Contact"},
     {path:'login' , component:LoginComponent, title:"Login"},
     {path:'sign-up' , component:SignUpComponent,title:"Sign-up"},
-    {path:'profile' , component:ProfileComponent,title:"Profile"},
     {path:'profile/edit' , component:EditProfileComponent,title:"Edit profile", children: [
         { path: 'profile', component: ChangeDataProfileComponent },
         { path: 'socials', component: SocialsComponent },
@@ -28,6 +27,7 @@ export const routes: Routes = [
       ]
     },
     {path:'profile/upload' , component:UploadComponent,title:"Upload work"},
+    {path:'profile/:username' , component:ProfileComponent,title:"Profile"},
     {path:'**' ,component:NotfoundComponent,title:"404 not found"}
     
 ];

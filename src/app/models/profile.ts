@@ -1,18 +1,18 @@
 export class profile {
     
-    username!:String;
-    description!:String;
+    Username!:String;
+    Description!:String;
     skills!:String[];
-    headline!:String;
-    avatar?:String;
-    images!:String[];
+    Headline!:String;
+    pfpURL!:String;
+    images?:String[];
 
-    constructor(username:String,description:String,skills: String[],headline:String,images:String[],avatar?:String){
-        this.username = username;
-        this.description = description;
+    constructor(Username:String,Description:String,skills: String[],Headline:String,pfpURL:String,images?:String[]){
+        this.Username = Username;
+        this.Description = Description;
         this.skills = skills;
-        this.headline = headline;
-        this.avatar = avatar;
+        this.Headline = Headline;
+        this.pfpURL = pfpURL;
         this.images = images;
     }
 
