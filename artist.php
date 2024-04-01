@@ -24,7 +24,11 @@ header('Content-type: application/json');
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $artist = $stmt->fetch(PDO::FETCH_ASSOC);
-    $artist['images'] = explode(',', $artist['images']);
+    if (empty($artist['images'])) {
+        $artist['images'] = null;
+    } else {
+        $artist['images'] = explode(',', $artist['images']);
+    }
     $artist['categories'] = explode(',', $artist['categories']);
     echo json_encode($artist);
    
