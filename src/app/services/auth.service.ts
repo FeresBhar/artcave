@@ -11,7 +11,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
 
-  username: String |undefined;
+  username: string |undefined;
   
   private loggedIn = new BehaviorSubject<boolean>(false);
 

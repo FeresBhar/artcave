@@ -20,10 +20,6 @@
                     <a class="nav-link" routerLink="/contact" routerLinkActive="active" 
                     [routerLinkActiveOptions]="{exact:true}">Contact us</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/profile" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact:true}">profile </a>
-                </li>
             </ul>
             <ul class="navbar-nav ms-auto buttons">
                 <ng-container *ngIf="loggedin | async; else notLoggedIn">

@@ -14,13 +14,14 @@
 
                     <p class="text-info ">Skills :</p>
 
-                    <div *ngIf="profile?.skills" class="text-center">
-                        <span  *ngFor="let item of profile.skills" >
+                    <div *ngIf="profile?.categories" class="text-center">
+                        <span  *ngFor="let item of profile.categories" >
                             <a class="btn skill"> {{item}}</a>
                         </span>
                     </div>
-
-                    <a routerLink="/profile/edit" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Edit profile</a>
+                    <div *ngIf="loggedin && !different">
+                        <a routerLink="/profile/edit" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Edit profile</a>
+                    </div>                    
 
                 </div>
             </div>
@@ -30,14 +31,14 @@
                 <div class="col">
                     <div class="d-flex justify-content-between align-items-center px-2 ">
                         <p class="portfolio text-white "><strong>Portfolio  </strong><span class="opacity">{{x}} artworks</span></p>
-                        <div *ngIf="profile?.images && loggedin">
+                        <div *ngIf="profile?.images && loggedin && !different">
                             <div *ngIf="profile.images && profile.images.length > 0;">
                                 <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-plus"></i> add art</a>
                             </div>
                         </div>
                     </div>
                     
-                        <div *ngIf="(!profile.images || profile.images.length === 0) && loggedin; else elseBlock" class="card upload ">
+                        <div *ngIf="(!profile.images || profile.images.length === 0) && (loggedin | async) && !different ; else elseBlock" class="card upload ">
                             <div class="card-body upload-body">
                                 <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
                                 <h2 class="card-title "> Upload your artwork</h2>

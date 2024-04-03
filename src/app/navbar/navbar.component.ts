@@ -3,6 +3,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { CommonModule, NgIf } from '@angular/common';
+import { UserService } from '../services/user.service';
+import { profile } from '../models/profile';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +15,20 @@ import { CommonModule, NgIf } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-  username : String | undefined;
+  username : string | undefined;
   loggedin : Observable<boolean> | undefined;
+  profile!: profile;
+  pfp? : string;
 
-  constructor(private authservice : AuthService){}
+  constructor(private userservice:UserService, private authservice : AuthService){}
   ngOnInit(): void {
     this.loggedin = this.authservice.isLoggedIn();
     if(this.loggedin){
       this.username = this.authservice.username;
+      /*
+      this.userservice.getProfile(this.username!).subscribe((profile: profile) => {
+        this.pfp = profile.pfpURL;
+      });*/
     }
   }
 
