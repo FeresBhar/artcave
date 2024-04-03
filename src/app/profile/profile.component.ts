@@ -4,8 +4,9 @@ import { profile } from '../models/profile';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -20,8 +21,9 @@ export class ProfileComponent implements OnInit {
   ProfileUsername? : string | null;
   profile!: profile;
   x : number = 0;
+  loggedin : Observable<boolean> | undefined;
 
-  constructor(private http:HttpClient,private userservice:UserService , private route : ActivatedRoute){}
+  constructor(private http:HttpClient,private userservice:UserService ,private authservice:AuthService, private route : ActivatedRoute){}
 
   ngOnInit(): void {
     this.ProfileUsername = this.route.snapshot.paramMap.get('username');
@@ -33,5 +35,6 @@ export class ProfileComponent implements OnInit {
         }
       });
     }
+    this.loggedin = this.authservice.isLoggedIn();
   }
 }

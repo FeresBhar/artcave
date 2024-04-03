@@ -26,13 +26,20 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto buttons">
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="/login">Login</a>
-                </li>
-                <li>
+                <ng-container *ngIf="loggedin | async; else notLoggedIn">
+                  <li class="nav-item">
+                    <a [routerLink]="['/profile', username]"><img src="https://picsum.photos/id/237/200/300" class="rounded-circle small pfp" alt="img"></a>
+                  </li>
+                </ng-container>
+                <ng-template #notLoggedIn>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                  </li>
+                  <li>
                     <a routerLink="/sign-up" class="btn custom-btn btn-sm signup">Sign-up</a>
-                </li>
-            </ul>
+                  </li>
+                </ng-template>
+              </ul>
         </div>
     </div>
   </nav>

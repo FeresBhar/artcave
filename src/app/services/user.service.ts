@@ -12,4 +12,8 @@ export class UserService {
   getProfile(username: string): Observable<any> {
     return this.http.get(`http://localhost/api/artist.php?username=${username}`);
   }
+
+  getArtists() : Observable<any>{
+    return this.http.get("http://localhost/api/feed.php");
+  }
 }

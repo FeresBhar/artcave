@@ -53,6 +53,9 @@ input::placeholder{
     .buttons{
         padding-left: 10px;
     }
+    .pfp{
+        margin-top: 10px;
+    }
   }
  
 .navbar-nav{
