@@ -24,7 +24,7 @@
             <ul class="navbar-nav ms-auto buttons">
                 <ng-container *ngIf="loggedin | async; else notLoggedIn">
                   <li class="nav-item">
-                    <a [routerLink]="['/profile', username]"><img src="https://picsum.photos/id/237/200/300" class="rounded-circle small pfp" alt="img"></a>
+                    <a [routerLink]="['/profile', username]"><img [src]="pfp" class="rounded-circle small pfp" alt="img"></a>
                   </li>
                 </ng-container>
                 <ng-template #notLoggedIn>

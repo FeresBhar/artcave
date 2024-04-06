@@ -31,6 +31,17 @@ button {
     padding: 10px;
     text-align: left;
 }
+.logout{
+    color: red;
+    border-radius: 10px;
+    text-align: center;
+}
+.logout:hover{
+    background-color:rgb(253, 56, 56);
+    color: white;
+    transition: 1s;
+}
+
 
 .left{
     padding-right: 10px;

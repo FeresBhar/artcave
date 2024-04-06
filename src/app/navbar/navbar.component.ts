@@ -25,10 +25,9 @@ export class NavbarComponent implements OnInit {
     this.loggedin = this.authservice.isLoggedIn();
     if(this.loggedin){
       this.username = this.authservice.username;
-      /*
       this.userservice.getProfile(this.username!).subscribe((profile: profile) => {
         this.pfp = profile.pfpURL;
-      });*/
+      });
     }
   }
 

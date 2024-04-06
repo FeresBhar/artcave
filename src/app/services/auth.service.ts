@@ -13,7 +13,7 @@ export class AuthService {
 
   username: string |undefined;
   
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient,@Inject(PLATFORM_ID) private platformId: Object) {
     // Check if the code is running in the browser environment before accessing localStorage

@@ -10,10 +10,10 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   getProfile(username: string): Observable<any> {
-    return this.http.get(`http://localhost/api/artist.php?username=${username}`);
+    return this.http.get<any>(`http://localhost/api/artist.php?username=${username}`);
   }
 
   getArtists() : Observable<any>{
-    return this.http.get("http://localhost/api/feed.php");
+    return this.http.get<any>("http://localhost/api/feed.php");
   }
 }
