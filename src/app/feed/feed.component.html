@@ -6,29 +6,31 @@
     </div>
     <div *ngIf="profiles">
         <div *ngFor="let item of profiles" >
-            <div class="row">
-                <div class="col">
-                    <div class="card my-3 ">
-                        <div class="card-body">
-                            <div class="col-md-4">
-                               <div class="d-flex align-items-center mb-3 ">
-                                    <a [routerLink]="['/profile', item.Username]"><img [src]="item.pfpURL" class="rounded-circle pfp" alt=""></a>
-                                    <div class="head">
-                                        <a [routerLink]="['/profile', item.Username]"><h3>{{item.Username}}</h3></a>
-                                        <p class="opacity">{{item.Headline}}</p>
-                                        <button [routerLink]="['/profile', item.Username]" class="btn custom-btn">View profile</button>
-                                    </div>
-                               </div>
-                               <div class="d-flex align-items-center ">
-                                    <div *ngFor="let categ of categories">
-                                        <p class="card-text opacity categories">{{categ}}, </p>
-                                    </div>
-                               </div>
-                               
-                                
-                                    
+            <div class="card my-3 ">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-3 ">
+                                <a [routerLink]="['/profile', item.Username]"><img [src]="item.pfpURL" class="rounded-circle pfp" alt=""></a>
+                                <div class="head ">
+                                    <a [routerLink]="['/profile', item.Username]"><h3>{{item.Username}}</h3></a>
+                                    <p class="opacity">{{item.Headline}}</p>
+                                    <button [routerLink]="['/profile', item.Username]" class="btn custom-btn">View profile</button>
+                                </div>
                             </div>
+                            <div class="row ">
+                                <div class="col d-flex align-items-center categories-container">
+                                    <ng-container *ngFor="let categ of categories; let last = last">
+                                        <p class="card-text opacity categories">{{categ}}{{!last ? "," : ""}} </p>
+                                    </ng-container>
+                                </div>
+                            </div>
+
                         </div>
+                        <div class="col-md-8">
+                            <p>hi</p>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

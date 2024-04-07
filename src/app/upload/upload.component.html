@@ -1,30 +1,34 @@
 <div class="container mt-4 ">
     <div class="row">
         <div class="col">
-            <form method="post">
+            <form [formGroup]="upload" (ngSubmit)="Upload()">
                 <p><span class="text-primary ">Manage Portfolio</span> / <span style="opacity: 0.8;">Create new artwork</span></p>
 
-                <h2 class="mb-3">Title : {{titre}}</h2>
+                <h2 class="mb-3">Title : {{upload.get('title')?.value}}</h2>
 
                 <div class="mt-1 ">
                     <div class="label">
                         <label for="title">Artwork title</label>
                     </div>
-                    <input type="text" placeholder="Set a title for your artwork" class="form-control inp" name="title" [(ngModel)]="titre">
+                    <input formControlName="title" type="text" placeholder="Set a title for your artwork" class="form-control inp" name="title">
                 </div>
 
                 <div class="description mt-5  ">
                     <div class="label">
                         <label for="description">Description</label>
                     </div>
-                    <textarea placeholder="Artwork Description . . ." cols="20" rows="5" class="form-control txt-area" name="description"  ></textarea>
+                    <textarea formControlName="description" placeholder="Artwork Description . . ." cols="20" rows="5" class="form-control txt-area" name="description"  ></textarea>
                 </div>
 
                 <div class="mt-5">
                     <div class="label">
                         <label for="file">File</label>
                     </div>
-                    <input type="file" class="form-control file " id="fileInput" name="fileInput">
+                    <input formControlName="imageURL" type="file" class="form-control file " name="imageURL">
+                </div>
+
+                <div class="d-flex align-items-center  justify-content-center mt-4">
+                    <button type="submit" class="btn custom-btn " >Upload</button>
                 </div>
                     
             </form>

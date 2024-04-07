@@ -18,6 +18,7 @@ input{
 
 .head{
     margin-left: 15px;
+    flex-wrap: wrap;
 }
 
 .opacity{
@@ -40,4 +41,11 @@ input{
 .categories{
     font-size: small;
     white-space: pre;
+    margin-right: 5px;
+    margin-bottom: 5px; 
 }
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+  }

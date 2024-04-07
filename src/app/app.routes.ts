@@ -26,7 +26,7 @@ export const routes: Routes = [
         { path: 'settings', component: SettingsComponent }
       ]
     },
-    {path:'profile/upload' , component:UploadComponent,title:"Upload work"},
+    {path:'profile/upload' , component:UploadComponent,title:"Upload art"},
     {path:'profile/:username' , component:ProfileComponent,title:"Profile"},
     {path:'**' ,component:NotfoundComponent,title:"404 not found"}
     

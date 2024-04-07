@@ -11,6 +11,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
 
+  token : any
   username: string |undefined;
   
   loggedIn = new BehaviorSubject<boolean>(false);
@@ -18,10 +19,10 @@ export class AuthService {
   constructor(private http: HttpClient,@Inject(PLATFORM_ID) private platformId: Object) {
     // Check if the code is running in the browser environment before accessing localStorage
     if (isPlatformBrowser(this.platformId)) {
-      const token = localStorage.getItem('token');
-      if (token) {
+      this.token = localStorage.getItem('token');
+      if (this.token) {
         this.loggedIn.next(true);
-        const decoded = jwtDecode(token);
+        const decoded = jwtDecode(this.token);
         this.username  = (decoded as { data: { username: string } }).data.username;
       }
     }
