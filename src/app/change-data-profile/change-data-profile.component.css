@@ -12,30 +12,73 @@
     background-color: #101014;
     padding: 1.5rem;
     border-radius: 10px;
-  }
+}
   
-  .custum-file-upload .icon {
+.custum-file-upload .icon {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
   
-  .custum-file-upload .icon svg {
+.custum-file-upload .icon svg {
     height: 80px;
     fill: #e8e8e8;
-  }
+}
   
-  .custum-file-upload .text {
+.custum-file-upload .text {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
   
-  .custum-file-upload .text span {
+.custum-file-upload .text span {
     font-weight: 400;
     color: #e8e8e8;
-  }
+}
   
-  .custum-file-upload input {
+.custum-file-upload input {
     display: none;
-  }
+}
+form{
+  background-color:#18181c;
+}
+.head{
+  background-color:#27272b;
+  border-radius: 5px 5px 0 0 ;
+}
+.custom-btn{
+  text-align: center;
+  color: white;
+  background-color: rgb(16, 56, 102);
+  border-radius: 5px;
+  margin-right: 20px;
+  transition: 0.2s;
+  border: none;
+}
+
+.custom-btn:hover{
+  background-color: #102d54;
+}
+.inp{
+  background-color: #101014;
+  color: white !important;
+  border: none;
+  height: 50px;
+}
+.inp:focus{
+  background-color: #101014;
+}
+.opacity{
+  opacity: .5;
+}
+.ll{
+  opacity: .7;
+}
+.txt-area{
+  background-color: #101014;
+  color: white !important;
+  border: none;
+}
+.txt-area:focus{
+  background-color: #101014;
+}

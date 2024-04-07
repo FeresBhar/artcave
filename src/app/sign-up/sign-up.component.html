@@ -6,11 +6,9 @@
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="Username" placeholder ="Username" formControlName="Username" required >
-                    <div *ngIf="Signup.get('Username')?.invalid && Signup.get('Username')?.touched">
-                        <small *ngIf="Signup.get('Username')?.errors?.['pattern']">
-                            *Please enter only letters and numbers
-                        </small>
-                    </div>
+                    <small *ngIf="Signup.get('Username')?.invalid && Signup.get('Username')?.touched && Signup.get('Username')?.errors?.['pattern']">
+                        *Please enter only letters and numbers
+                    </small>
                 </div>
                 
                 <div class="mb-3">
@@ -25,12 +23,14 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="Password" formControlName="Password" placeholder ="Password" required >
                     <div *ngIf="Signup.get('Password')?.invalid && Signup.get('Password')?.touched ">
-                        <small *ngIf="Signup.get('Password')?.errors?.['minlength']?.['requiredLength']">
+                        <small *ngIf="Signup.get('Password')?.errors?.['minlength']?.['requiredLength']; else elseblock">
                             *Please enter at least 6 caracters
                         </small>
-                        <small *ngIf="Signup.get('Password')?.errors?.['pattern']" >
-                            *Please enter only letters and numbers
-                        </small>
+                        <ng-template #elseblock>
+                            <small *ngIf="Signup.get('Password')?.errors?.['pattern']" >
+                                *Please enter only letters and numbers
+                            </small>
+                        </ng-template>
                     </div>
                 </div>
             

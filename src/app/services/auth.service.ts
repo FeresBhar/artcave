@@ -17,7 +17,6 @@ export class AuthService {
   loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient,@Inject(PLATFORM_ID) private platformId: Object) {
-    // Check if the code is running in the browser environment before accessing localStorage
     if (isPlatformBrowser(this.platformId)) {
       this.token = localStorage.getItem('token');
       if (this.token) {

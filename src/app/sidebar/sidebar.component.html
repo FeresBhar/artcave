@@ -2,10 +2,10 @@
     <div class="col">
         <div class="head d-flex align-items-center mb-5 ">
             
-            <img src="https://dummyjson.com/image/150" class="rounded-circle" alt="Avatar">
+            <img [routerLink]="['/profile',currentUsername]" [src]="profile.pfpURL" class="rounded-circle avatar" alt="Avatar">
                 <div class="name">
                     <p style="opacity: .6;">Settings</p>
-                    <h2>kotb gharbi</h2>
+                    <h3>{{profile.Username}}</h3>
                 </div>
                 
         </div>
@@ -20,8 +20,8 @@
                 <li>
                     <button routerLink="settings" routerLinkActive="active"> <i class="fas fa-gear left"></i>Settings <i class="fas fa-arrow-right opacity"></i></button>
                 </li>
-                <li>
-                    <button (click)="logout()" class="logout">Logout</button>
+                <li class="d-flex justify-content-center">
+                    <button (click)="logout()" class="logout w-75 mt-2  ">Logout</button>
                 </li>
             </ul>
     </div>

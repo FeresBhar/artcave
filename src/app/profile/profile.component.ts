@@ -33,7 +33,6 @@ export class ProfileComponent implements OnInit {
     if(this.ProfileUsername !== this.currentUsername){
       this.different = true;
     }
-    console.log(this.different);
     
     if (this.ProfileUsername) {
       this.userservice.getProfile(this.ProfileUsername).subscribe((profile: profile) => {

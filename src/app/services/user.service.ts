@@ -16,4 +16,9 @@ export class UserService {
   getArtists() : Observable<any>{
     return this.http.get<any>("http://localhost/api/feed.php");
   }
+
+  updateProfile(userID: string, user: any): Observable<any> {
+    return this.http.put<any>(`http://localhost/api/profile.php?userID=${userID}`, user);
+  }
+
 }

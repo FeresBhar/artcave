@@ -6,11 +6,7 @@
 .row{
     color: white;
 }
-.head{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .name p {
     margin: 10px 0 0;
@@ -32,14 +28,14 @@ button {
     text-align: left;
 }
 .logout{
-    color: red;
+    color: white;
     border-radius: 10px;
     text-align: center;
+    background-color:rgb(164, 0, 0);
+    transition: background-color 0.3s;
 }
 .logout:hover{
     background-color:rgb(253, 56, 56);
-    color: white;
-    transition: 1s;
 }
 
 
@@ -56,6 +52,13 @@ button {
         flex-direction: column;
         text-align: center;
     }
+    ul{
+        align-items: center;
+        padding: 0;
+    }
+    li {
+        margin: 20px 0;
+    }
   }
 
   @media (min-width: 992px) {
@@ -70,4 +73,7 @@ button {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+.avatar{
+    cursor: pointer;
 }
