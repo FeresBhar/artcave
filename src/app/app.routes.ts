@@ -11,12 +11,14 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SocialsComponent } from './socials/socials.component';
 import { ChangeDataProfileComponent } from './change-data-profile/change-data-profile.component';
+import { CanActivate } from './authGuards/CanActivate';
+import { SendCommissionComponent } from './send-commission/send-commission.component';
 
 
 export const routes: Routes = [
     {path:'explore' ,component:FeedComponent,title:"Explore"},
     {path:'' , redirectTo:"/explore",pathMatch:"full"},
-    {path:'commissions' , component:CommissionsComponent, title:"Commisions"},
+    {path:'commissions' , component:CommissionsComponent, title:"Commisions",canActivate : [(CanActivate)]},
     {path:'contact' , component:ContactComponent, title:"Contact"},
     {path:'login' , component:LoginComponent, title:"Login"},
     {path:'sign-up' , component:SignUpComponent,title:"Sign-up"},
@@ -27,6 +29,7 @@ export const routes: Routes = [
       ]
     },
     {path:'profile/upload' , component:UploadComponent,title:"Upload art"},
+    {path:'profile/send-commision' ,component : SendCommissionComponent,canActivate : [CanActivate]},
     {path:'profile/:username' , component:ProfileComponent,title:"Profile"},
     {path:'**' ,component:NotfoundComponent,title:"404 not found"}
     

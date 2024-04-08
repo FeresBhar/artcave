@@ -15,15 +15,11 @@ export class FeedComponent implements OnInit{
 
   profiles : profile[] | undefined;
 
-  categories? : string[] = [
-    "2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d","2d",
-  ];
   constructor(private userservice : UserService){}
 
   ngOnInit(): void {
       this.userservice.getArtists().subscribe((profile : profile[]) =>{
         this.profiles = profile;
-        console.log(this.profiles);
       })
 
 

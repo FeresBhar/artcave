@@ -4,6 +4,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { profile } from '../models/profile';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-data-profile',
@@ -29,7 +30,7 @@ export class ChangeDataProfileComponent implements OnInit{
 
   ChangeData : FormGroup = new FormGroup({})
 
-  constructor(private http : HttpClient,private authservice : AuthService,private userservice:UserService){}
+  constructor(private router: Router,private http : HttpClient,private authservice : AuthService,private userservice:UserService){}
 
   ngOnInit(): void {
     this.currentUsername = this.authservice.username;
@@ -40,11 +41,10 @@ export class ChangeDataProfileComponent implements OnInit{
   }
 
   OnChangeData() {
-    if(this.ChangeData.valid){
-      this.http.post("http://localhost/api/artwork.php",this.ChangeData.value).subscribe((res : any)=>{
-
-      })
-    }
+    this.userservice.updateProfile(this.ChangeData.value).subscribe((res : any)=>{
+      console.log(res);
+      this.router.navigate(['/explore']);
+    })
 
   }
 

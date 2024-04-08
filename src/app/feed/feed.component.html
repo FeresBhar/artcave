@@ -20,7 +20,7 @@
                             </div>
                             <div class="row ">
                                 <div class="col d-flex align-items-center categories-container">
-                                    <ng-container *ngFor="let categ of categories; let last = last">
+                                    <ng-container *ngFor="let categ of item.categories; let last = last">
                                         <p class="card-text opacity categories">{{categ}}{{!last ? "," : ""}} </p>
                                     </ng-container>
                                 </div>

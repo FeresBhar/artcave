@@ -21,6 +21,9 @@
                     </div>
                     <div *ngIf="loggedin && !different">
                         <a routerLink="/profile/edit" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Edit profile</a>
+                    </div>
+                    <div *ngIf="loggedin && different">
+                        <a routerLink="/profile/send-commision" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Send Commision</a>
                     </div>                    
 
                 </div>
