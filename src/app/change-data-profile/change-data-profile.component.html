@@ -7,7 +7,7 @@
                   <h2 class="px-3 pt-2 ">Profile-info</h2>
                   <p class="px-3 pt-3 opacity ">Fill in your hiring information to appear in search results</p>
                </div>
-               <button type="button" class="btn custom-btn">view profile</button>
+               <button [routerLink]="['/profile',currentUsername]" type="button" class="btn custom-btn">view profile</button>
             </div>
          </div>
       </div>
@@ -16,16 +16,24 @@
             <div class="px-4 ">
                <div>
                   <label for="username" class="mb-1 ll">*Username</label>
-                  <input type="text" class="form-control inp" value="{{profile.Username}}" name="username">
+                  <input type="text" class="form-control inp" formControlName="Username" value="{{profile.Username}}" name="username">
                </div>
                <div class="mt-4">
                   <label for="headline" class="mb-1 ll">*Headline - One line about you</label>
-                  <input type="text" class="form-control inp" value="{{profile.Headline}}" name="headline">
+                  <input type="text" class="form-control inp" formControlName="Headline" value="{{profile.Headline}}" name="headline">
                </div>
                <div class="my-4">
                   <label for="description" class="mb-1 ll">*Description</label>
-                  <textarea class=" form-control txt-area" value="{{profile.Description}}" rows="5" name="description"></textarea>
+                  <textarea class=" form-control txt-area" formControlName="Description" value="{{profile.Description}}" rows="5" name="description"></textarea>
                </div>
+               <div class=" my-4 radio-buttons text-center ">
+                  <p style="color : #548fdd">*Do you want to appear in search results?</p>
+                  <input type="radio" id="option1" name="public" value="Y" formControlName="public" required>
+                  <label for="option1">Yes</label>
+                  
+                  <input type="radio" id="option2" name="public" value="N" formControlName="public" required>
+                  <label for="option2">No</label>
+              </div>
             </div>
          </div>
          <div class="col-md-6 d-flex justify-content-center align-items-center m-0 ">
@@ -40,6 +48,8 @@
             </label>
          </div>
       </div>
-      <button type="submit" class="btn btn-primary ">submit</button>
+      <div class="d-flex justify-content-center align-items-center ">
+         <button type="submit" class="btn custom-btn my-3">Submit</button>
+      </div>
    </form>
 </div>

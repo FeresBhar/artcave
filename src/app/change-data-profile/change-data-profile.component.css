@@ -82,3 +82,28 @@ form{
 .txt-area:focus{
   background-color: #101014;
 }
+.radio-buttons label {
+  display: inline-block;
+  font-style: bold;
+  background-color: #101014;
+  padding: 10px 20px;
+  cursor: pointer;    
+}
+
+.radio-buttons input[type="radio"] {
+  display: none;
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+  background-color: #093570;
+}
+#option1 + label{
+  border-radius: 5px 0 0 5px ;
+  border: 2px solid #093570;
+}
+#option2 + label{
+  border-radius: 0 5px 5px 0 ;
+  border-top: 2px solid #093570; 
+  border-bottom: 2px solid #093570; 
+  border-right: 2px solid #093570;
+}
