@@ -1,1 +1,50 @@
-<p>settings works!</p>
+<div class="container-fluid text-white">
+    <form [formGroup]="settings" (ngSubmit)="OnSettings()">
+       <div class="row">
+          <div class="col">
+             <div class="head d-flex justify-content-between align-items-center">
+                <div>
+                   <h2 class="px-3 pt-2 ">Settings</h2>
+                   <p class="px-3 pt-3 opacity ">Email , Password</p>
+                </div>
+                <button [routerLink]="['/profile',currentUsername]" type="button" class="btn custom-btn">view profile</button>
+             </div>
+          </div>
+       </div>
+       <div class="row mt-4 ">
+            <div class="col-md-4 px-5">
+                <h5>Email</h5>
+                <p class="ll">Your email address used for contacting you</p>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="username" class="mb-1 ll">*Email</label>
+                <input type="text" class="form-control inp" formControlName="Username" value="{{profile.Username}}" name="username">
+            </div>
+       </div>
+       <hr>
+       <div class="row mt-3">
+            <div class="col-md-4 px-5">
+                <h5 class="big">New password</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="Password" class="mb-1 ll">*New password</label>
+                <input type="password" class="form-control inp"  name="Password">
+            </div>
+       </div>
+       <hr>
+       <div class="row mt-3">
+            <div class="col-md-4 px-5 ">
+                <h5 class="big">New password confirmation</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="confirm" class="mb-1 ll">*New password confirmation</label>
+                <input type="password" class="form-control inp" name="confirm">
+            </div>
+       </div>
+       <div class="d-flex justify-content-center align-items-center ">
+            <button type="submit" class="btn custom-btn mb-4 mt-5 ">Submit</button>
+       </div>
+    </form>
+    <div class="p-4"></div>
+ </div>
+ 

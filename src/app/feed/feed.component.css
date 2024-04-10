@@ -6,9 +6,13 @@
     text-decoration: none;
     color: white;
 }
-input{
+.search{
     margin: 100px;
     padding: 20px;
+    background-color: #202024;
+    border: none;
+    color: white;
+    border-radius: 10px;
 }
 
 .pfp{
