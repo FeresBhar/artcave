@@ -3,8 +3,8 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: PUT, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require_once("connexion.php");
 require_once("vendor/autoload.php"); 
 header('Content-type:application/json');
@@ -32,7 +32,7 @@ $json_data = json_decode(file_get_contents('php://input'), true);
     $description = $json_data['Description'] ?? NULL;
     $pfpURL = $json_data['pfpURL'] ?? NULL;
     $categories = $json_data["categories"] ?? NULL;
-    $public = $json_data["public"] ?? "N";
+    $public = $json_data["public"];
 // updating everything but categs
 try {
     $stmt = $connexion->prepare("UPDATE Artist SET Description = :description, Headline = :headline, pfpURL = :pfpURL, public=:public WHERE ArtistId = :artistID");

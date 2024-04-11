@@ -11,9 +11,9 @@ header('Content-type:application/json');
 //json data
 $json_data = json_decode(file_get_contents('php://input'), true); 
 
-if (!empty($json_data['Username']) && !empty($json_data['Password'])) {
-    $username = $json_data['Username'];
-    $password = $json_data['Password'];
+if (!empty($json_data['username']) && !empty($json_data['password'])) {
+    $username = $json_data['username'];
+    $password = $json_data['password'];
     // retrieve user data
     $stmt = $connexion->prepare("SELECT * FROM user WHERE Username = :username");
     $stmt->bindParam(':username', $username);
@@ -25,7 +25,7 @@ if (!empty($json_data['Username']) && !empty($json_data['Password'])) {
         $stored_pw = $user['Password'];
         if ($password === $stored_pw) {
             auth($username, $password);
-
+            
         } else {
             echo json_encode(array("result" => "Password incorrect"));
         }
@@ -57,8 +57,12 @@ function auth($username, $password)
             "password" => $password,
                         )
                     );
-                    $jwt = JWT::encode($token, $secret_key); 
-                    echo json_encode(array("result" => true, "jwt" => $jwt));
+                    $jwt = JWT::encode($token, $secret_key);
+                    $stmt = $connexion->prepare("SELECT type FROM user WHERE Username = :username");
+                    $stmt->bindParam(':username', $username);
+                    $stmt->execute();
+                    $type = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo json_encode(array("type" => $type['type'], "jwt" => $jwt));
                 } 
             
 ?>
