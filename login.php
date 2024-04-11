@@ -37,7 +37,7 @@ if (!empty($json_data['username']) && !empty($json_data['password'])) {
 }
 function auth($username, $password)
 {                  
-       // jwt token generation
+    // jwt token generation
     global $connexion;              
     $secret_key = "bc34968d319ad9363f9642f6c567f9b119c979e2431e544421101aa6c9fe95a1"; 
     $issuer_claim = "localhost"; 
@@ -45,6 +45,11 @@ function auth($username, $password)
     $issuedat_claim = time(); 
     $notbefore_claim = $issuedat_claim + 10; 
     $expire_claim = $issuedat_claim + 3600; 
+
+    $stmt = $connexion->prepare("SELECT type FROM user WHERE Username = :username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $type = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $token = array(
         "iss" => $issuer_claim,
@@ -55,14 +60,26 @@ function auth($username, $password)
         "data" => array(
             "username" => $username,
             "password" => $password,
-                        )
-                    );
-                    $jwt = JWT::encode($token, $secret_key);
-                    $stmt = $connexion->prepare("SELECT type FROM user WHERE Username = :username");
-                    $stmt->bindParam(':username', $username);
-                    $stmt->execute();
-                    $type = $stmt->fetch(PDO::FETCH_ASSOC);
-                    echo json_encode(array("type" => $type['type'], "jwt" => $jwt));
-                } 
+            "id" => NULL
+        )
+    );
+    if ($type['type'] === "A") {
+        $artist_id_stmt = $connexion->prepare("SELECT ArtistId FROM artist WHERE Username = :username");
+        $artist_id_stmt->bindParam(':username', $username);
+        $artist_id_stmt->execute();
+        $artist_id = $artist_id_stmt->fetch(PDO::FETCH_ASSOC);
+        $token['data']['id'] = $artist_id['ArtistId'];
+    } elseif ($type['type'] === "C") {
+        $client_id_stmt = $connexion->prepare("SELECT ClientId FROM client WHERE Username = :username");
+        $client_id_stmt->bindParam(':username', $username);
+        $client_id_stmt->execute();
+        $client_id = $client_id_stmt->fetch(PDO::FETCH_ASSOC);
+        $token['data']['id'] = $client_id['ClientId'];
+    }
+
+    $jwt = JWT::encode($token, $secret_key);
+    echo json_encode(array("type" => $type['type'], "jwt" => $jwt));
+} 
+
             
 ?>
