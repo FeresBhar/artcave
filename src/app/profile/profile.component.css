@@ -40,65 +40,32 @@ h2{
     pointer-events: none;
 }
 
-.custom-btn2{
-    color: #fff;
-    border: 2px solid #606064;
-    padding: 8px 18px;
-    border-radius: 8px;
-    transition:0.5s ease ;
+ul {
+    padding: 0; 
+    background-color: #fff;
+    border-radius: 200px;
+    z-index: 10;
+    position: fixed;
+    bottom: 24px;
+}
+
+.bar-elements{
+    list-style: none;
+    display: inline-block;
+    margin: 3px;
+    padding: 15px;
+    cursor: pointer;
+    transition: opacity .5s;
+    border-radius: 200px;
     
 }
-
-.custom-btn2:hover{
-    background-color:#353637 ;
+a{
+    padding: 10px;
 }
-
-i{
-    margin-right: 5px;
-    display: inline-block;
+.bar-elements:hover::target-text{
+    opacity: .8;
 }
-
-.upload{
-    background-color: #101014;
-    border: none;
-    margin-top: 80px;
-}
-
-
-.upload-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-.portfolio{
-    font-size: 1.5rem;
-}
-
-@media (max-width: 576px) {
-    .image{
-        width: 100%;
-        margin: 1px 0;
-    }
-    .portfolio{
-        margin-top: 15px;
-    }
-  }
-@media (min-width: 577px) {
-    .image{
-        width: 100%;
-        height: 100%;
-  }
-}
-.opacity{
-    opacity: .7;
-}
-.images{
-    padding: 1px!important;
-    height: 20rem;
-}
-.image{
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
+.active {
+    background-color: black;
+    color: white;
 }

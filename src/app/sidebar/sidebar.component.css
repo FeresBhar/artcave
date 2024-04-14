@@ -24,7 +24,7 @@ button {
     background-color: transparent;
     border: none;
     color: white;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
 }
 .logout{
@@ -76,4 +76,7 @@ button {
 }
 .avatar{
     cursor: pointer;
+}
+.active{
+    background-color:#18181c;
 }

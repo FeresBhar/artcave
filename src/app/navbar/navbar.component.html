@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark shadow">
+<nav class="navbar navbar-expand-lg navbar-dark shadow mb-5">
     <div class="container-fluid ">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
             <ul class="navbar-nav ms-auto buttons">
                 <ng-container *ngIf="loggedin | async; else notLoggedIn">
                   <li class="nav-item">
-                    <a [routerLink]="['/profile', username]"><img [src]="pfp" class="rounded-circle small pfp" alt="img"></a>
+                    <a [routerLink]="['/profile', username,'portfolio']"><img [src]="pfp" class="rounded-circle small pfp" alt="img"></a>
                   </li>
                 </ng-container>
                 <ng-template #notLoggedIn>

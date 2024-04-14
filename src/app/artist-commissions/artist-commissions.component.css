@@ -1,0 +1,49 @@
+.custom-btn2{
+    color: #fff;
+    border: 2px solid #606064;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition:0.5s ease ;
+    
+}
+
+.custom-btn2:hover{
+    background-color:#353637 ;
+}
+
+i{
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.upload{
+    background-color: #101014;
+    border: none;
+    margin-top: 80px;
+}
+
+
+.upload-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+.portfolio{
+    font-size: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .portfolio{
+        margin-top: 15px;
+    }
+  }
+
+.opacity{
+    opacity: .7;
+}
+.card-img-top{
+    height: 150px;
+    width: 150px;
+    
+}

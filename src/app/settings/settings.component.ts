@@ -35,15 +35,14 @@ export class SettingsComponent {
   Form() {
     this.settings= new FormGroup({
       Username : new FormControl(this.profile.Username),
-      Headline : new FormControl(this.profile.Headline),
-      Description : new FormControl(this.profile.Description),
-      public : new FormControl(this.profile.public),
+      Password : new FormControl(null),
+      confirm : new FormControl(null)
     });
     console.log(this.settings.value);
   }
 
   OnSettings() {
-    throw new Error('Method not implemented.');
-  }
+    
+    }
 
 }

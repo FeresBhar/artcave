@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col">
+        <div class="d-flex justify-content-between align-items-center px-2">
+            <p class="portfolio text-white "><strong>Portfolio  </strong><span class="opacity">{{x}} artworks</span></p>
+            <div *ngIf="profile?.images && loggedin && !different">
+                <div *ngIf="profile.images && profile.images.length > 0;">
+                    <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-plus"></i> add art</a>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="(!profile.images || profile.images.length === 0) && (loggedin | async) && !different ; else elseBlock" class="card upload ">
+            <div class="card-body upload-body">
+                <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
+                <h2 class="card-title "> Upload your artwork</h2>
+                <p class="card-text text-center opacity ">Fill your profile with artwork you are proud of.
+                    Get feedback on your work and build your industry network.</p>
+                    <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-arrow-up"></i> Upload image</a>
+            </div>
+        </div>
+        
+        
+        <ng-template #elseBlock>
+            <div class="row mt-3">
+                <div class="col-md-3 images" *ngFor="let item of profile.images">
+                    <img [src]="item" alt="img" class="image">
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

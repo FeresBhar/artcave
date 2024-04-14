@@ -11,11 +11,11 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="d-flex align-items-center mb-3 ">
-                                <a [routerLink]="['/profile', item.Username]"><img [src]="item.pfpURL" class="rounded-circle pfp" alt=""></a>
+                                <a [routerLink]="['/profile', item.Username,'portfolio']"><img [src]="item.pfpURL" class="rounded-circle pfp" alt=""></a>
                                 <div class="head ">
-                                    <a [routerLink]="['/profile', item.Username]"><h3>{{item.Username}}</h3></a>
+                                    <a [routerLink]="['/profile', item.Username,'portfolio']"><h3>{{item.Username}}</h3></a>
                                     <p class="opacity">{{item.Headline}}</p>
-                                    <button [routerLink]="['/profile', item.Username]" class="btn custom-btn">View profile</button>
+                                    <button [routerLink]="['/profile', item.Username,'portfolio']" class="btn custom-btn">View profile</button>
                                 </div>
                             </div>
                             <div class="row ">

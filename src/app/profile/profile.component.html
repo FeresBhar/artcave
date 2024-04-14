@@ -10,7 +10,7 @@
                     
                     <p *ngIf="profile?.Headline" class="card-text text-center mt-1 opacity">{{profile.Headline}}</p>
 
-                    <p *ngIf="profile?.Description" class="card-text text-center mt-1 ">{{profile.Description}}</p>
+                    <p *ngIf="profile?.Description" class="card-text text-center mt-1">{{profile.Description}}</p>
 
                     <p class="text-info ">Skills :</p>
 
@@ -20,7 +20,7 @@
                         </span>
                     </div>
                     <div *ngIf="loggedin && !different">
-                        <a routerLink="/profile/edit" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Edit profile</a>
+                        <a routerLink="/profile/edit/profile" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Edit profile</a>
                     </div>
                     <div *ngIf="loggedin && different">
                         <a routerLink="/profile/send-commision" class="btn custom-btn w-100 mt-4"> <i class="fas fa-pen"></i> Send Commision</a>
@@ -30,39 +30,20 @@
             </div>
         </div>
         <div class="col-md-9">
+            <router-outlet></router-outlet>
             <div class="row">
-                <div class="col">
-                    <div class="d-flex justify-content-between align-items-center px-2 ">
-                        <p class="portfolio text-white "><strong>Portfolio  </strong><span class="opacity">{{x}} artworks</span></p>
-                        <div *ngIf="profile?.images && loggedin && !different">
-                            <div *ngIf="profile.images && profile.images.length > 0;">
-                                <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-plus"></i> add art</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                        <div *ngIf="(!profile.images || profile.images.length === 0) && (loggedin | async) && !different ; else elseBlock" class="card upload ">
-                            <div class="card-body upload-body">
-                                <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
-                                <h2 class="card-title "> Upload your artwork</h2>
-                                <p class="card-text text-center opacity ">Fill your profile with artwork you are proud of.
-                                    Get feedback on your work and build your industry network.</p>
-                                <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-arrow-up"></i> Upload image</a>
-                            </div>
-                        </div>
-                    
-                    
-                    <ng-template #elseBlock>
-                        <div class="row mt-3">
-                            <div class="col-md-3 images" *ngFor="let item of profile.images">
-                                <img [src]="item" alt="img" class="image">
-                            </div>
-                        </div>
-                    </ng-template>
+                <div class="p-4 d-flex justify-content-center align-items-center wrapper ">
+                    <ul class="d-flex justify-content-center  align-items-center ">
+                        <li class="bar-elements" routerLink="portfolio" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}"><a> Portfolio</a></li>
+                        <li class="bar-elements" routerLink="commissions" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}"><a> Commissions </a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+    <div class="p-2 "></div>
 </div>
 
 

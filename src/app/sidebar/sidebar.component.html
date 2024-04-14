@@ -12,13 +12,16 @@
             
             <ul>
                 <li>
-                    <button routerLink="profile" routerLinkActive="active"> <i class="fas fa-user left"></i>Profile <i class="fas fa-arrow-right opacity"></i></button>
+                    <button routerLink="profile" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> <i class="fas fa-user left"></i>Profile <i class="fas fa-arrow-right opacity"></i></button>
                 </li>
                 <li>
-                    <button routerLink="socials" routerLinkActive="active"> <i class="fas fa-share-nodes left"></i>Socials <i class="fas fa-arrow-right opacity"></i></button>
+                    <button routerLink="socials" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> <i class="fas fa-share-nodes left"></i>Socials <i class="fas fa-arrow-right opacity"></i></button>
                 </li>
                 <li>
-                    <button routerLink="settings" routerLinkActive="active"> <i class="fas fa-gear left"></i>Settings <i class="fas fa-arrow-right opacity"></i></button>
+                    <button routerLink="settings" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"> <i class="fas fa-gear left"></i>Settings <i class="fas fa-arrow-right opacity"></i></button>
                 </li>
                 <li class="d-flex justify-content-center">
                     <button (click)="logout()" class="logout w-75 mt-2  ">Logout</button>
