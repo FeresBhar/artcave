@@ -2,7 +2,7 @@
 use Firebase\JWT\JWT;
 
 header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Methods: POST, OPTIONS, PUT");
 header("Access-Control-Allow-Headers: Content-Type");
 require_once("connexion.php");
 require_once("vendor/autoload.php"); 
