@@ -11,10 +11,7 @@ header('Content-type:application/json');
 
 
 
-// Check the request method
-$request_method = $_SERVER['REQUEST_METHOD'];
 
-if ($request_method !== 'GET') {
      // getting clientID from jwt
     $headers = apache_request_headers();
     if (isset($headers)) {
@@ -43,7 +40,4 @@ $response = [
     'success' => $resultat,
     'message' => $resultat ? "Commission inserted successfully" : "Error inserting commission"
 ];
-}else {
-
-
-}
+?>
