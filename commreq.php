@@ -40,4 +40,5 @@ $response = [
     'success' => $resultat,
     'message' => $resultat ? "Commission inserted successfully" : "Error inserting commission"
 ];
+echo json_encode($response);
 ?>

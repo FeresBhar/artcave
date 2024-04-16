@@ -21,10 +21,7 @@ if ($request_method !== 'GET') {
         $jwt= $jwtbear[1];
     }
     $decoded = JWT::decode($jwt, new Key("bc34968d319ad9363f9642f6c567f9b119c979e2431e544421101aa6c9fe95a1",'HS256'));
-    $usernm = $decoded ->data->username;
-    $stmt = $connexion->prepare('SELECT ArtistID from artist WHERE username=:username');
-    $stmt->bindParam(':username', $usernm);
-    $stmt->execute();
+    $id = $decoded ->data->id;
     $artistID=$stmt->fetchColumn();
 
     // getting input info from profile
