@@ -72,8 +72,16 @@ if ($request_method !== 'GET') {
     }
     }
 } else {
-    $username = $_GET['Username'];
-$sql = "SELECT 
+    if (isset($_GET['Username'])) {
+        $username = $_GET['Username'];
+    }else{
+        $ID = $_GET['id'];
+        $stmt = $connexion->prepare('SELECT username from artist WHERE ArtistID=:id');
+        $stmt->bindParam(':username', $id);
+        $stmt->execute();
+        $username = $stmt->fetchColumn();
+    }
+    $sql = "SELECT 
             a.Username,
             a.Description,
             a.Headline,
