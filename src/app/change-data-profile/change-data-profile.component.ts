@@ -16,6 +16,7 @@ import { Router, RouterLink } from '@angular/router';
 export class ChangeDataProfileComponent implements OnInit{
 
   profile! : profile;
+  id? : number;
   currentUsername? : string;
 
   selectedImage: string = 'Click to upload image';
@@ -34,8 +35,9 @@ export class ChangeDataProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.currentUsername = this.authservice.username;
-    if(this.currentUsername){
-      this.userservice.getProfile(this.currentUsername).subscribe((profile: profile) => {
+    this.id = this.authservice.id;
+    if(this.id){
+      this.userservice.getYourProfile(this.id).subscribe((profile: profile) => {
         this.profile = profile;
         this.Form();
       });
@@ -49,13 +51,10 @@ export class ChangeDataProfileComponent implements OnInit{
       Description : new FormControl(this.profile.Description),
       public : new FormControl(this.profile.public),
     });
-    console.log(this.ChangeData.value);
   }
 
   OnChangeData() {
-    console.log(this.ChangeData.value);
     this.userservice.updateProfile(this.ChangeData.value).subscribe((res : any)=>{
-      console.log(res);
       this.router.navigate(['/explore']);
     })
 

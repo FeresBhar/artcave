@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
     if(this.login.valid){
       this.authService.login(this.login.value).subscribe((res : any) =>{
         if(res.result === true){
-          this.router.navigate(['/explore']);
+          this.router.navigate(['/explore']).then(() => {
+            window.location.reload();
+          });
         }
         else if(res.result =="Username is incorrect"){
           this.login.get("Username")?.setErrors({ incorrect: true });

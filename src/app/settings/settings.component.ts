@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { profile } from '../models/profile';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule],
+  imports: [RouterLink,ReactiveFormsModule,NgIf],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
@@ -34,15 +35,18 @@ export class SettingsComponent {
   
   Form() {
     this.settings= new FormGroup({
-      Username : new FormControl(this.profile.Username),
-      Password : new FormControl(null),
-      confirm : new FormControl(null)
+      email : new FormControl(this.profile.email,Validators.email),
+      Password : new FormControl(null,Validators.minLength(6)),
+      confirm : new FormControl(null,Validators.minLength(6))
     });
-    console.log(this.settings.value);
   }
 
   OnSettings() {
-    
+    if(this.settings.value.Password !== this.settings.value.confirm){
+      this.settings.get("confirm")?.setErrors({ incorrect: true });
+    }else if(this.settings.valid){
+      
     }
+  }
 
 }

@@ -12,7 +12,10 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
 
   token : any
-  username: string |undefined;
+  username: string | undefined;
+  id : number | undefined;
+
+  Usertype: string | undefined;
   
   loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -23,6 +26,8 @@ export class AuthService {
         this.loggedIn.next(true);
         const decoded = jwtDecode(this.token);
         this.username  = (decoded as { data: { username: string } }).data.username;
+        this.id = (decoded as { data: { id: number } }).data.id;
+        this.Usertype = ((decoded as { data: { type: string } }).data.type);
       }
     }
   }
@@ -41,9 +46,11 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+    window.location.reload();
   }
 
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
+
 }

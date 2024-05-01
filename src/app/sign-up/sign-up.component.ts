@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
     constructor(private http : HttpClient,private router:Router) {}
 
     Signup : FormGroup = new FormGroup({})
+    
 
     ngOnInit(): void {
         this.Signup= new FormGroup({

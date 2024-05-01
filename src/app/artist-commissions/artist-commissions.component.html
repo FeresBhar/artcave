@@ -2,27 +2,90 @@
     <div class="col">
         <div class="d-flex justify-content-between align-items-center px-2">
             <p class="portfolio text-white "><strong>Commissions  </strong></p>
-            <div>
-                <div>
+            
+            <div *ngIf="loggedin && !different">
+                <div *ngIf="commissions && commissions.length > 0 && Usertype==='A';">
                     <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-plus"></i> add commission</a>
                 </div>
             </div>
         </div>
         
-        <div >
+        <div *ngIf="(!commissions|| commissions.length === 0) && (loggedin | async) && !different && Usertype==='A'; else elseBlock" class="card upload ">
             <div class="card-body upload-body">
                 <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
-                <h2 class="card-title "> Upload your artwork</h2>
+                <h2 class="card-title "> Upload Commission</h2>
                 <p class="card-text text-center opacity ">Fill your profile with artwork you are proud of.
                     Get feedback on your work and build your industry network.</p>
-                    <a routerLink="/profile/upload" class="btn custom-btn2"><i class="fas fa-arrow-up"></i> Create commission</a>
+                    <a routerLink="/profile/upload" class="btn custom-btn2 mt-3"><i class="fas fa-arrow-up"></i> Upload Commission</a>
             </div>
         </div>
         
-        
         <ng-template #elseBlock>
-            <div class="row mt-3">
-                
+            <div *ngFor="let commision of commissions">
+                <div class="row mt-3 card-container">
+                    <div class="col-md-7 ">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center my-2 ">
+                                    <h3>{{commision.title}}</h3>
+                                    <div class="alert alert-info" role="alert">$ <span>{{commision.minprice}}</span> +</div>
+                                </div>
+                                <p *ngFor="let line of commision.cominfo.split('\n')" class="card-text mb-4">{{line}}</p>
+                                <img [src]="commision.imageURL" alt="img" class="my-2 images">
+                                
+                                <div *ngIf="Usertype ==='C'">
+                                    <button (click)="SelectedCommission(commision.title, commision.minprice,commision.cominstru,commision.comID)" 
+                                    data-bs-toggle="modal" data-bs-target="#myModal" type="button" class="btn custom-btn w-100 mt-3">Request this</button>
+                                </div>
+                                
+                                <form [formGroup]="pay" (ngSubmit)="payupbruh()">
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog modal-lg">
+                                          <div class="modal-content">
+                                      
+                                            <!-- Modal Header -->
+                                            <div class="modal-header d-flex justify-content-between align-items-center">
+                                                <h4 class="modal-title">{{ CommissionTitle }}</h4>
+                                                <div class="d-flex align-items-center">
+                                                  <div class="alert alert-danger mb-0" role="alert">$ <span>{{ CommissionPrice }}</span> +</div>
+                                                </div>
+                                            </div>
+                                      
+                                            <!-- Modal body -->
+                                            <div class="modal-body mt-1 ">
+                                                <label class="req-label mb-3 ">Instructions : </label>
+                                                <p *ngFor="let line of CommissionInstructions?.split('\n')" class="card-text mb-4">{{line}}</p>
+                                                <label for="description" class="req-label mb-2 ">Describe your request : </label>
+                                                <textarea class="form-control" placeholder="Please provide all the details needed to complete your request"  formControlName="description"  name="description" cols="30" rows="10"></textarea>
+                                                <div *ngIf="pay.get('description')?.invalid && pay.get('description')?.touched" class="mb-4">
+                                                    <small>*You must write something in the description</small>   
+                                                </div>
+
+                                                <label class="req-label mb-3 ">How much would you like to pay ?</label>
+                                                <div class="price d-flex justify-content-between align-items-center  mb-3">
+                                                    <span class="input-group-text ss ">$</span>
+                                                    <input type="number" name="price" formControlName="price" class="custom-input" placeholder="{{CommissionPrice}} or more" min="0" step="any">
+                                                </div>
+                                                <div *ngIf="pay.get('price')?.invalid && pay.get('price')?.errors?.['incorrect']" class="mb-4">
+                                                    <small>*At least  ${{CommissionPrice}}</small>   
+                                                </div>
+                                            </div>
+                                      
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn custom-close" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn custom-pay">Send request</button>
+                                            </div>
+                                      
+                                          </div>
+                                        </div>
+                                      </div>
+                                </form>
+ 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </ng-template>
     </div>

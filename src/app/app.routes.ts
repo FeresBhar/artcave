@@ -12,7 +12,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { SocialsComponent } from './socials/socials.component';
 import { ChangeDataProfileComponent } from './change-data-profile/change-data-profile.component';
 import { CanActivate } from './authGuards/CanActivate';
-import { SendCommissionComponent } from './send-commission/send-commission.component';
 import { ArtistCommissionsComponent } from './artist-commissions/artist-commissions.component';
 import { ArtistPortfolioComponent } from './artist-portfolio/artist-portfolio.component';
 
@@ -31,7 +30,6 @@ export const routes: Routes = [
       ]
     },
     {path:'profile/upload' , component:UploadComponent,title:"Upload art"},
-    {path:'profile/send-commision' ,component : SendCommissionComponent,canActivate : [CanActivate]},
     {path:'profile/:username' , component:ProfileComponent,title:"Profile" , children : [
       { path: '', redirectTo: 'portfolio', pathMatch: 'full' },
       {path:'portfolio', component:ArtistPortfolioComponent,title:'Portfolio'},

@@ -1,1 +1,126 @@
-<p>commissions works!</p>
+<div *ngIf="Requests ; else elseblock1">
+    <div *ngIf="Usertype==='A' ; else req">
+        <h2 class="text-center text-white mb-5">Requests received</h2>
+    </div>
+    <ng-template #req>
+        <h2 class="text-center text-white mb-5">Requests sent</h2>
+    </ng-template>
+    <div *ngFor="let Request of Requests">
+        <div class="row d-flex justify-content-center align-items-center mb-5  ">
+            <div class="col-md-6">
+                <div *ngIf="Usertype==='A' ; else elseblock">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+    
+                                    <h4 class="card-title inline">Client :</h4>
+                                    <p class="inline large" >{{Request.username}}</p>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4 class="card-title">Description:</h4>
+                                            <p style="font-size: 20px;">{{Request.description}}</p>
+                                        </div>
+                                    </div>  
+    
+                                    <h4 class="card-title inline">Price :</h4>
+                                    <p class="inline">${{Request.price}}</p>
+                                 </div>    
+                                <div class="col-md-5 stat">
+                                    <div *ngIf="Request.status ==='Hold'" >
+                                        <p class="text-center large ">Status : </p>
+                                        <div class="alert alert-warning text-center " role="alert">
+                                            Waiting...
+                                        </div>
+                                    </div>
+                                    <div *ngIf="Request.status ==='Accepted'">
+                                        <p class="text-center large ">status : </p>
+                                        <div class="alert alert-warning  text-center " role="alert">
+                                            {{Request.status}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="Request.status ==='Denied'">
+                                        <p class="text-center large ">status : </p>
+                                        <div class="alert alert-danger  text-center " role="alert">
+                                            {{Request.status}}
+                                        </div>
+                                    </div>
+                                    
+                                    <div *ngIf="Request.status ==='Hold'">
+                                        <button type="button" class="decline-btn" >Deny Request</button>
+                                        <button type="button" class="accept-btn" >Accept Request</button>
+                                    </div>
+
+                                    <div *ngIf="Request.status ==='Accepted'">
+                                        <button type="button" class="upload-btn" >Upload Art</button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <ng-template #elseblock>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+    
+                                    <h4 class="card-title inline">Artist :</h4>
+                                    <p class="inline large">{{Request.username}}</p>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4 class="card-title">Description:</h4>
+                                            <p>{{Request.description}}</p>
+                                        </div>
+                                    </div>  
+    
+                                    <h4 class="card-title inline">Price :</h4>
+                                    <p class="inline">${{Request.price}}</p>
+                                 </div>    
+                                <div class="col-md-5 stat">
+                                    <div *ngIf="Request.status ==='Hold'">
+                                        <p class="text-center large ">status : </p>
+                                        <div class="alert alert-warning text-center " role="alert">
+                                            Waiting...
+                                        </div>
+                                    </div>
+                                    <div *ngIf="Request.status ==='Accepted'">
+                                        <p class="text-center large ">status : </p>
+                                        <div class="alert alert-success  text-center " role="alert">
+                                            {{Request.status}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="Request.status ==='Denied'">
+                                        <p class="text-center large ">status : </p>
+                                        <div class="alert alert-danger  text-center " role="alert">
+                                            {{Request.status}}
+                                        </div>
+                                    </div>
+                                    
+                                    <div *ngIf="Request.status ==='Hold'">
+                                        <button type="button" class="decline-btn ff" >Cancel Request</button>
+                                    </div>
+
+                                    <div *ngIf="Request.status ==='Accepted'">
+                                        <button type="button" class="accept-btn" >Get Art</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+<ng-template #elseblock1>
+
+</ng-template>

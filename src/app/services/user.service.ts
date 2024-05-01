@@ -13,6 +13,11 @@ export class UserService {
     return this.http.get<any>(`http://localhost/api/artist.php?username=${username}`);
   }
 
+  getYourProfile(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost/api/artist.php?id=${id}`);
+  }
+
+
   getArtists() : Observable<any>{
     return this.http.get<any>("http://localhost/api/feed.php");
   }

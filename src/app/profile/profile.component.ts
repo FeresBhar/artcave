@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,RouterLinkActive,NgFor,NgIf,CommonModule],
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,NgFor,NgIf,FormsModule,CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -20,16 +20,17 @@ export class ProfileComponent implements OnInit {
 
   ProfileUsername? : string | null;
   profile!: profile;
-  loggedin : Observable<boolean> | undefined;
+  loggedin : boolean = false;
   currentUsername? : string;
   different? : boolean = false;
+  Usertype: string | undefined;
 
   constructor(private http:HttpClient,private userservice:UserService ,private authservice:AuthService, private route : ActivatedRoute){}
 
   ngOnInit(): void {
     this.ProfileUsername = this.route.snapshot.paramMap.get('username');
     this.currentUsername = this.authservice.username;
-    if(this.ProfileUsername !== this.currentUsername){
+    if(this.ProfileUsername && this.currentUsername && (this.ProfileUsername !== this.currentUsername)){
       this.different = true;
     }
     
@@ -38,6 +39,9 @@ export class ProfileComponent implements OnInit {
         this.profile = profile;
       });
     }
-    this.loggedin = this.authservice.isLoggedIn();
+    this.authservice.isLoggedIn().subscribe((login) => {
+      this.loggedin = login;
+    });
+    this.Usertype = this.authservice.Usertype;
   }
 }

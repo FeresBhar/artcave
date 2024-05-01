@@ -4,15 +4,18 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import Swal from 'sweetalert2';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-upload',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule,NgIf],
   templateUrl: './upload.component.html',
   styleUrl: './upload.component.css'
 })
 export class UploadComponent implements OnInit{
+  
+  downloadURL: string | null = null;
 
   constructor(private http : HttpClient,private router:Router,private authservice : AuthService) {}
 
@@ -27,20 +30,4 @@ export class UploadComponent implements OnInit{
 
 }
 
-Upload() {
-
-  if(this.upload.valid){
-    this.http.post("http://localhost/api/artwork.php",this.upload.value).subscribe((res : any) => {
-      if(res.result){
-        this.router.navigate(["/profile",this.authservice.username])
-      }else {
-        Swal.fire({
-          title: "Oops...",
-          text: "Something went wrong , Please try again", 
-          icon: "error"
-        });
-      }
-      
-    
-  })}}
 }

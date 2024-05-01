@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "artcave-ee1d9": {
+      "hosting": {
+        "project": [
+          "artcave-ee1d9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "artcave-ee1d9"
+  }
+}

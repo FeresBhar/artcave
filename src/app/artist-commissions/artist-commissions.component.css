@@ -1,3 +1,14 @@
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    color: white;
+    background-color: #202024 ;
+}
+
 .custom-btn2{
     color: #fff;
     border: 2px solid #606064;
@@ -37,6 +48,9 @@ i{
     .portfolio{
         margin-top: 15px;
     }
+    .add{
+        margin-top: 15px;
+    }
   }
 
 .opacity{
@@ -44,6 +58,87 @@ i{
 }
 .card-img-top{
     height: 150px;
-    width: 150px;
-    
+    width: 150px;   
+}
+.images{
+    width: 100%;
+    max-height: 300px; 
+    height: auto;
+    display: block;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.custom-btn{
+    background-color: rgb(48, 70, 132);
+    color: white;
+    padding: 8px;
+    border-radius: 25rem;
+    transition: 0.5s;
+}
+.custom-btn:hover{
+    background-color: rgb(64, 87, 151);
+}
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  opacity: .9;
+}
+.modal{
+    color: #101014;
+}
+.req-label{
+    font-weight: bold;
+    color: #101014 ;
+}
+
+.price{
+    border: 1px solid #3a3a3a;
+    border-radius: 15px;
+}
+.custom-input{
+    border: none !important;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+    font-size: large;
+}
+.custom-input:focus{
+    outline: none;
+    border: none !important;
+}
+.custom-input::placeholder{
+    font-weight: 700;
+    color: rgb(126, 170, 208);
+}
+.ss{
+    border-radius: 15px;
+    background-color: transparent;
+    border: none !important;
+}
+.custom-pay{
+    background-color: rgb(255, 191, 191);
+    padding: 8px 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+.custom-pay:hover{
+    background-color: rgb(255, 210, 210);
+}
+.custom-close{
+    background-color: rgb(100, 100, 100);
+    padding: 8px 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-align: center;
+    color: white;
+}
+.custom-close:hover{
+    background-color: rgb(150, 150, 150);
+}
+small{
+    color: rgb(172, 55, 55);
+    font-weight: bold;
 }

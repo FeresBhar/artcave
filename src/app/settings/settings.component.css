@@ -30,7 +30,7 @@ form{
   .opacity{
     opacity: .5;
 }
-  .ll{
+.ll{
     opacity: .7;
 }
 @media (min-width : 992px){
@@ -43,3 +43,7 @@ form{
         padding-bottom: 10px;
     }
 }  
+small{
+    color: rgb(172, 55, 55);
+    font-weight: bold;
+}

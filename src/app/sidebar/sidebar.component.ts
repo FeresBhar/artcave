@@ -14,21 +14,25 @@ import { profile } from '../models/profile';
 export class SidebarComponent implements OnInit {
 
   profile! : profile;
+  id? : number;
   currentUsername? : string;
 
   constructor(private userservice : UserService,private authservice : AuthService, private route : Router){}
 
   ngOnInit(): void {
     this.currentUsername = this.authservice.username;
-    if(this.currentUsername){
-      this.userservice.getProfile(this.currentUsername).subscribe((profile: profile) => {
+    this.id = this.authservice.id;
+    if(this.id){
+      this.userservice.getYourProfile(this.id).subscribe((profile: profile) => {
         this.profile = profile;})
     }
   }
 
   logout() { 
     this.authservice.logout();
-    this.route.navigate(['/explore']);
+    this.route.navigate(['/explore']).then(() => {
+      window.location.reload();
+    });
   }
 
 }
