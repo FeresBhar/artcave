@@ -48,8 +48,8 @@
                                     </div>
                                     
                                     <div *ngIf="Request.status ==='Hold'">
-                                        <button type="button" class="decline-btn" >Deny Request</button>
-                                        <button type="button" class="accept-btn" >Accept Request</button>
+                                        <button type="button" class="decline-btn" (click)="deny(Request.reqid)" >Deny Request</button>
+                                        <button type="button" class="accept-btn" (click)="accept(Request.reqid)" >Accept Request</button>
                                     </div>
 
                                     <div *ngIf="Request.status ==='Accepted'">
@@ -75,7 +75,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h4 class="card-title">Description:</h4>
-                                            <p>{{Request.description}}</p>
+                                            <p style="font-size: 20px;">{{Request.description}}</p>
                                         </div>
                                     </div>  
     
@@ -103,7 +103,7 @@
                                     </div>
                                     
                                     <div *ngIf="Request.status ==='Hold'">
-                                        <button type="button" class="decline-btn ff" >Cancel Request</button>
+                                        <button type="button" class="decline-btn ff" (click)="cancel(Request.reqid)" >Cancel Request</button>
                                     </div>
 
                                     <div *ngIf="Request.status ==='Accepted'">
@@ -122,5 +122,5 @@
     
 </div>
 <ng-template #elseblock1>
-
+    <h2 class="text-center text-white mb-5">No Requests</h2>
 </ng-template>

@@ -28,11 +28,5 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  logout() { 
-    this.authservice.logout();
-    this.route.navigate(['/explore']).then(() => {
-      window.location.reload();
-    });
-  }
 
 }

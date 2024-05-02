@@ -14,6 +14,7 @@ import { ComRequest } from '../models/ComRequest';
 })
 export class CommissionsComponent implements OnInit{
 
+
   Usertype: string | undefined;
   username: string | undefined;
   id : number | undefined;
@@ -30,5 +31,33 @@ export class CommissionsComponent implements OnInit{
     })
   }
 
+  updateRequestStatus(reqid: number, status: string) {
+    const request = {
+      reqid: reqid,
+      msg: status,
+    };
+  
+    this.http.post<any>("http://localhost/api/status.php", request).subscribe((res: any) => {
+        if (res.result === true) {
+          const index = this.Requests.findIndex(req => req.reqid === reqid);
+          if (index !== -1) {
+            this.Requests[index].status = status;
+          }
+        } else {
+          console.error("Failed to update status");
+        }
+      }, error => {
+        console.error("Failed to update status:", error);
+      });
+  }
+  accept(reqid : number) {
+    this.updateRequestStatus(reqid, 'Accepted');
+  }
+  deny(reqid : number) {
+    this.updateRequestStatus(reqid, 'Denied');
+  }
+  cancel(reqid : number) {
+    this.updateRequestStatus(reqid, 'Cancelled');
+  }
 
 }

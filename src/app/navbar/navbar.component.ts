@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { CommonModule, NgIf } from '@angular/common';
@@ -14,13 +14,13 @@ import { profile } from '../models/profile';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-
+  
   username : string | undefined;
   loggedin : Observable<boolean> | undefined;
   profile!: profile;
   pfp? : string;
 
-  constructor(private userservice:UserService, private authservice : AuthService){}
+  constructor(private userservice:UserService, private authservice : AuthService, private route:Router){}
   ngOnInit(): void {
     this.loggedin = this.authservice.isLoggedIn();
     if(this.loggedin){
@@ -30,5 +30,12 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+  logout() { 
+    this.authservice.logout();
+    this.route.navigate(['/explore']).then(() => {
+      window.location.reload();
+    });
+  }
+
 
 }

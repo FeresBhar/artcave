@@ -21,11 +21,19 @@
                     [routerLinkActiveOptions]="{exact:true}">Contact us</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto buttons">
-                <ng-container *ngIf="loggedin | async; else notLoggedIn">
+            <ul class="navbar-nav ms-auto">
+                <ng-container *ngIf="(loggedin | async); else notLoggedIn">
                   <li class="nav-item">
-                    <a [routerLink]="['/profile', username,'portfolio']"><img [src]="pfp" class="rounded-circle small pfp" alt="img"></a>
+                    <div class="dropdown dropstart " >
+                      <img [src]="pfp" class="rounded-circle small pfp dropdown-toggle" alt="pfp" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                      <ul class="dropdown-menu ">
+                        <li ><a class="dropdown-item" [routerLink]="['/profile', username, 'portfolio']"><i class="fa-solid fa-user"></i> View Profile</a></li>
+                        <li><a class="dropdown-item" (click)="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+                      </ul>
+                    </div>
                   </li>
+                  
                 </ng-container>
                 <ng-template #notLoggedIn>
                   <li class="nav-item">

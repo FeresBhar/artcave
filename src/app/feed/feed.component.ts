@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { profile } from '../models/profile';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
   standalone: true,
-  imports: [RouterLink,NgFor,NgIf],
+  imports: [RouterLink,NgFor,NgIf,CommonModule],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.css'
 })
