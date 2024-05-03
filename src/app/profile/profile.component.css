@@ -27,6 +27,7 @@ h2{
     border-radius: 10px;
     padding: 8px ;
     transition: 0.3s ease;
+    border: none;
 }
 
 .custom-btn:hover {
@@ -39,6 +40,7 @@ h2{
     background-color: rgb(48, 70, 132);
     margin: 5px;
     pointer-events: none;
+    font-size: 13px;
 }
 
 ul {
@@ -70,3 +72,64 @@ a{
     background-color: black;
     color: white;
 }
+.socials-container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 40px;
+    background-color:transparent;
+  }
+  .social {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgb(194, 194, 194);
+  }
+  .lin:hover {
+    background: linear-gradient(45deg, #0077b5, #0a66c2, #004980);
+  }
+  .facebook:hover {
+    background: linear-gradient(45deg, #134ac0, #316ff6, #78a3ff);
+  }
+  .github:hover {
+    background:  linear-gradient(45deg, #24292e, #6e40c9, #216e39);
+  }
+  .instagram:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+  .social svg {
+    fill: white;
+    height: 15px;
+  }
+  

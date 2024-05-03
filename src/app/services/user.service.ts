@@ -26,4 +26,8 @@ export class UserService {
     return this.http.put<any>("http://localhost/api/profile.php",user);
   }
 
+  socials(id : number) : Observable<any>{
+    return this.http.get(`http://localhost/api/socials.php?id=${id}`);
+  }
+
 }

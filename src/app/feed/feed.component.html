@@ -1,114 +1,83 @@
 <div class="container">
     <div class="row">
-        <div class="col d-flex justify-content-center align-items-center ">
-            <input type="text" class="search w-50" placeholder="Search..." name="search" id="">
+        <div class="col">  
+            <form class="d-flex justify-content-center align-items-center">
+                <input type="text" class="search w-50" placeholder="Search..." name="search">
+            </form>
+            
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center align-items-center ">
+                <div class="wrapper">
+                    <div class="icon" (click)="iconClicked('left')" #arrowLeft><i class="fa-solid fa-angle-left"></i></div>
+                        <ul class="tabs-box" #tabsBox>
+                        <li class="tab" *ngFor="let tab of tabs; let i = index" (click)="tabClicked(i)" [class.active]="i === activeTabIndex">{{tab}}</li>
+                        </ul>
+                        <div class="icon" (click)="iconClicked('right')" #arrowRight><i class="fa-solid fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+
     <div *ngIf="profiles">
-        <div *ngFor="let item of profiles" >
-            <div class="card my-3 ">
+        <div *ngFor="let item of profiles">
+            <div class="card my-3">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="d-flex align-items-center mb-3 ">
+                            <div class="d-flex align-items-center mb-3">
                                 <a [routerLink]="['/profile', item.Username,'portfolio']"><img [src]="item.pfpURL" class="rounded-circle pfp" alt=""></a>
-                                <div class="head ">
+                                <div class="head">
                                     <a [routerLink]="['/profile', item.Username,'portfolio']"><h3>{{item.Username}}</h3></a>
                                     <p class="opacity">{{item.Headline}}</p>
                                     <button [routerLink]="['/profile', item.Username,'portfolio']" class="btn custom-btn">View profile</button>
                                 </div>
                             </div>
-                            <div class="row ">
+                            <div class="row">
                                 <div class="col d-flex align-items-center categories-container">
                                     <ng-container *ngFor="let categ of item.categories; let last = last">
                                         <p class="card-text opacity categories">{{categ}}{{!last ? "," : ""}} </p>
                                     </ng-container>
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-md-9">
-                          <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                              <div class="carousel-inner">
-                                  <div class="carousel-item active">
-                                      <div class="card-wrapper container-sm d-flex justify-content-around"> 
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://picsum.photos/200/300?grayscale" style="max-height: 161px; overflow: hidden;" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900"  class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="carousel-item">
-                                      <div class="card-wrapper container-sm d-flex justify-content-around"> <!-- Updated class -->
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="carousel-item">
-                                      <div class="card-wrapper container-sm d-flex justify-content-around"> <!-- Updated class -->
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                          <div class="card" style="width: 18rem;">
-                                              <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">Card title</h5>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Previous</span>
-                              </button>
-                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Next</span>
-                              </button>
-                          </div>
-                      </div>
-                      
-                        
+                            <div id="carousel{{item.Username}}" class="carousel carousel-light slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <ng-container *ngIf="item.images && item.images.length > 1">
+                                        <div *ngFor="let imageGroup of chunkArray(item.images, 3); let i = index" class="carousel-item" [ngClass]="{active: i === 0}">
+                                            <div class="card-wrapper container-sm d-flex justify-content-around">
+                                                <div *ngFor="let image of imageGroup" class="card" style="width: 18rem;">
+                                                    <img [src]="image.url" class="card-img-top images" alt="...">
+                                                    <div class="card-body title" style="background-color: #18181a;">
+                                                        <h5 class="card-title text-center" style="font-size: 25px;">{{image.title}} </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <div *ngIf="!item.images || item.images.length === 1" class="carousel-item active">
+                                        <div class="card-wrapper container-sm d-flex justify-content-around">
+                                            <div class="card empty-card" style="width: 18rem;"></div>
+                                            <div class="card empty-card" style="width: 18rem;"></div>
+                                            <div class="card empty-card" style="width: 18rem;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel'+item.Username" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel'+item.Username" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

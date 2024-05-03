@@ -19,10 +19,12 @@ export class NavbarComponent implements OnInit {
   loggedin : Observable<boolean> | undefined;
   profile!: profile;
   pfp? : string;
+  type?:string;
 
   constructor(private userservice:UserService, private authservice : AuthService, private route:Router){}
   ngOnInit(): void {
     this.loggedin = this.authservice.isLoggedIn();
+    this.type = this.authservice.Usertype;
     if(this.loggedin){
       this.username = this.authservice.username;
       this.userservice.getProfile(this.username!).subscribe((profile: profile) => {

@@ -1,0 +1,49 @@
+form{
+    background-color:#18181c;
+}
+.head{
+    background-color:#27272b;
+    border-radius: 5px 5px 0 0 ;
+}
+.custom-btn{
+    text-align: center;
+    color: white;
+    background-color: rgb(16, 56, 102);
+    border-radius: 5px;
+    margin-right: 20px;
+    transition: 0.2s;
+    border: none;
+}
+
+.custom-btn:hover{
+    background-color: #102d54;
+}
+.inp{
+    background-color: #101014;
+    color: white !important;
+    border: none;
+    height: 50px;
+}
+.inp:focus{
+    background-color: #101014;
+}
+  .opacity{
+    opacity: .5;
+}
+.ll{
+    opacity: .7;
+}
+@media (min-width : 992px){
+    .big{
+        padding-top: 20px;
+    }
+}
+@media (max-width : 992px){
+    .big{
+        padding-bottom: 10px;
+    }
+}  
+small{
+    color: rgb(172, 55, 55);
+    font-weight: bold;
+}

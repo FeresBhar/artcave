@@ -1,1 +1,64 @@
-<p>socials works!</p>
+<div class="container-fluid text-white">
+    <form [formGroup]="settings" (ngSubmit)="OnSettings()">
+       <div class="row">
+          <div class="col">
+             <div class="head d-flex justify-content-between align-items-center">
+                <div>
+                   <h2 class="px-3 pt-2 ">Socials</h2>
+                   <p class="px-3 pt-3 opacity ">Github , Linkedin , Facebook , Instagram</p>
+                </div>
+                <button [routerLink]="['/profile',currentUsername]" type="button" class="btn custom-btn">view profile</button>
+             </div>
+          </div>
+       </div>
+       
+       <div class="row mt-3">
+            <div class="col-md-4 px-5">
+                <h5 class="big">Github</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="Github" class="mb-1 ll">*Your Github link</label>
+                <input type="url" class="form-control inp" formControlName="Github"  name="Github">
+                
+            </div>
+       </div>
+       <hr>
+       <div class="row mt-3">
+            <div class="col-md-4 px-5">
+                <h5 class="big">Linkedin</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="Linkedin" class="mb-1 ll">*Your Linkedin link</label>
+                <input type="url" class="form-control inp" formControlName="Linkedin"  name="Linkedin">
+                
+            </div>
+       </div>
+       <hr>
+       <div class="row mt-3">
+            <div class="col-md-4 px-5">
+                <h5 class="big">Facebook</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="Facebook" class="mb-1 ll">*Your Facebook link</label>
+                <input type="url" class="form-control inp" formControlName="Facebook"  name="Facebook">
+                
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-3">
+            <div class="col-md-4 px-5">
+                <h5 class="big">Instagram</h5>
+            </div>
+            <div class="col-md-8 px-5">
+                <label for="Instagram" class="mb-1 ll">*Your Instagram link</label>
+                <input type="url" class="form-control inp" formControlName="Instagram"  name="Instagram">
+                
+            </div>
+        </div>
+       <div class="d-flex justify-content-center align-items-center ">
+            <button type="submit" class="btn custom-btn mb-4 mt-5 ">Submit</button>
+       </div>
+    </form>
+    <div class="p-4"></div>
+ </div>
+ 

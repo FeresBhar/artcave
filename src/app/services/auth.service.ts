@@ -13,7 +13,7 @@ export class AuthService {
 
   token : any
   username: string | undefined;
-  id : number | undefined;
+  id! : number ;
 
   Usertype: string | undefined;
   

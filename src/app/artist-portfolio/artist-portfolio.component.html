@@ -13,7 +13,7 @@
         
         <div *ngIf="(!profile.images || profile.images.length === 0) && (loggedin | async) && !different && Usertype==='A'; else elseBlock" class="card upload ">
             <div class="card-body upload-body">
-                <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top">
+                <img src="../../assets/upload2.png" alt="Upload icon" class="card-img-top" style="background-color: transparent;">
                 <h2 class="card-title "> Upload your artwork</h2>
                 <p class="card-text text-center opacity ">Fill your profile with artwork you are proud of.
                     Get feedback on your work and build your industry network.</p>

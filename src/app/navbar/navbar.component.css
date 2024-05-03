@@ -63,6 +63,9 @@ input::placeholder{
 .pfp{
     cursor: pointer;
 }
+.dropdown-item{
+    cursor: pointer;
+}
 .dropdown-item:active {
-    background-color: #6c6c6c;
+    background-color: #04162f;
   }
